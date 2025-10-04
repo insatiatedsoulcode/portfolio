@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, ExternalLink } from "lucide-react";
-import Image from "next/image";
 
 const Education = () => {
   const [ref, inView] = useInView({
