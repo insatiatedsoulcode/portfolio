@@ -51,70 +51,142 @@ const Education = () => {
       date: "June 22, 2025",
       credential: "Certificate No. 07191062025 - Rating: 4.75/5.00",
       description: "Successfully completed project on 'Artificial Intelligence in Credit Scoring: Evaluating the Business Value and Ethical Implications with GRC Integration' with EmpowerTech Solutions, demonstrating practical AI/ML skills and industry knowledge",
-          verificationUrl: "/images/qollabb-certificate.png",
-          hasImage: false
+      verificationUrl: "/images/qollabb-certificate.png",
+      hasImage: false
+    },
+    {
+      name: "DevOps Prerequisite Course",
+      issuer: "KodeKloud",
+      date: "September 2025",
+      credential: "Credential ID: 2Z3UDF566UC4",
+      description: "Comprehensive DevOps fundamentals covering essential tools and practices for modern software development and deployment",
+      verificationUrl: "https://kodekloud.com/certificate-verification/2Z3UDF566UC4",
+      hasImage: false
+    },
+    {
+      name: "Enterprise Product Management Fundamentals",
+      issuer: "Microsoft",
+      date: "September 2025",
+      credential: "Credential ID: VWVDU72N8B5F",
+      description: "Advanced product management skills focusing on enterprise-level product strategy, planning, and execution",
+      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/VWVDU72N8B5F",
+      hasImage: false
+    },
+    {
+      name: "Git Basics for DevOps",
+      issuer: "KodeKloud",
+      date: "September 2025",
+      credential: "Credential ID: GRRCKLJAOE8W",
+      description: "Essential Git version control skills for DevOps professionals, covering branching, merging, and collaboration workflows",
+      verificationUrl: "https://kodekloud.com/certificate-verification/GRRCKLJAOE8W",
+      hasImage: false
+    },
+    {
+      name: "Jenkins for Beginners",
+      issuer: "KodeKloud",
+      date: "September 2025",
+      credential: "Credential ID: 1VRFKZG4XIR5",
+      description: "Introduction to Jenkins CI/CD pipeline automation, covering build automation, deployment, and continuous integration practices",
+      verificationUrl: "https://kodekloud.com/certificate-verification/1VRFKZG4XIR5",
+      hasImage: false
+    },
+    {
+      name: "Developing Front-End Apps with React",
+      issuer: "IBM",
+      date: "August 2025",
+      credential: "Credential ID: VV12R0IBL6I6",
+      description: "Advanced React development skills including component architecture, state management, and modern front-end development practices",
+      verificationUrl: "https://www.credly.com/badges/VV12R0IBL6I6",
+      hasImage: false
+    },
+    {
+      name: "Machine Learning with Python",
+      issuer: "IBM",
+      date: "August 2025",
+      credential: "Credential ID: CL51521A2YB1",
+      description: "Comprehensive machine learning course covering algorithms, data preprocessing, model training, and evaluation using Python",
+      verificationUrl: "https://www.credly.com/badges/CL51521A2YB1",
+      hasImage: false
+    },
+    {
+      name: "Automation and Scripting with Python",
+      issuer: "Microsoft",
+      date: "July 2025",
+      credential: "Credential ID: PBQEG0351M0V",
+      description: "Advanced Python scripting and automation techniques for system administration, testing, and process optimization",
+      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/PBQEG0351M0V",
+      hasImage: false
+    },
+    {
+      name: "Data Analysis and Visualization with Python",
+      issuer: "Microsoft",
+      date: "July 2025",
+      credential: "Credential ID: C5BLVVQZD0E7",
+      description: "Data analysis and visualization skills using Python libraries including pandas, matplotlib, and seaborn for business intelligence",
+      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/C5BLVVQZD0E7",
+      hasImage: false
     },
     {
       name: "Microsoft Python Development Professional Certificate",
       issuer: "Microsoft",
-      date: "July 20, 2025",
-      credential: "Professional Certificate - Completed by Deepak Singh",
-      description: "Comprehensive Python development certification covering advanced Python programming, data analysis, web development, and Microsoft development tools",
-      verificationUrl: "https://coursera.org/share/eec0e3be60cdf1dc13a11ebf87003fe1",
+      date: "July 2025",
+      credential: "Credential ID: 8NVWDWDR0GGV",
+      description: "Comprehensive Python development certification covering advanced programming, web development, and Microsoft development tools",
+      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/8NVWDWDR0GGV",
       hasImage: false
     },
     {
-      name: "AWS Certified Solutions Architect - Professional",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      credential: "Credential ID: AWS-123456789",
-      description: "Advanced expertise in designing distributed systems and enterprise applications on AWS",
-      verificationUrl: "https://aws.amazon.com/verification",
-      hasImage: false
-    },
-    {
-      name: "Google Cloud Professional Developer",
-      issuer: "Google Cloud",
-      date: "2022",
-      credential: "Credential ID: GCP-987654321",
-      description: "Certified in developing scalable applications using Google Cloud Platform services",
-      verificationUrl: "https://cloud.google.com/certification",
-      hasImage: false
-    },
-    {
-      name: "Meta React Developer Certification",
-      issuer: "Meta (Facebook)",
-      date: "2022",
-      credential: "Credential ID: META-456789123",
-      description: "Advanced React development, hooks, context API, and modern JavaScript practices",
-      verificationUrl: "https://certificates.meta.com",
-      hasImage: false
-    },
-    {
-      name: "Microsoft Azure Fundamentals",
+      name: "Python Programming Fundamentals",
       issuer: "Microsoft",
-      date: "2021",
-      credential: "Credential ID: AZ-900-123456",
-      description: "Fundamental knowledge of cloud services and Azure platform capabilities",
-      verificationUrl: "https://learn.microsoft.com/en-us/certifications",
+      date: "July 2025",
+      credential: "Credential ID: 05MQWN5FT197",
+      description: "Core Python programming concepts including syntax, data structures, object-oriented programming, and best practices",
+      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/05MQWN5FT197",
       hasImage: false
     },
     {
-      name: "Docker Certified Associate",
-      issuer: "Docker Inc.",
-      date: "2021",
-      credential: "Credential ID: DCA-789123456",
-      description: "Containerization, orchestration, and container security best practices",
-      verificationUrl: "https://docker.com/certification",
+      name: "Web Development with Python",
+      issuer: "Microsoft",
+      date: "July 2025",
+      credential: "Credential ID: EOWJ2P3DL5LW",
+      description: "Full-stack web development using Python frameworks including Django and Flask for building scalable web applications",
+      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/EOWJ2P3DL5LW",
       hasImage: false
     },
     {
-      name: "Kubernetes Administrator (CKA)",
-      issuer: "Cloud Native Computing Foundation",
-      date: "2022",
-      credential: "Credential ID: CKA-456789123",
-      description: "Kubernetes cluster administration, networking, and troubleshooting",
-      verificationUrl: "https://cncf.io/certification",
+      name: "Introduction to LLM",
+      issuer: "Google",
+      date: "April 2025",
+      credential: "Credential ID: 15156340",
+      description: "Understanding Large Language Models, their architecture, applications, and implementation in real-world scenarios",
+      verificationUrl: "https://www.cloudskillsboost.google/public_profiles/15156340",
+      hasImage: false
+    },
+    {
+      name: "Introduction to Responsible AI",
+      issuer: "Google",
+      date: "April 2025",
+      credential: "Credential ID: 15156579",
+      description: "Ethical AI development principles, bias mitigation, fairness, and responsible AI practices for enterprise applications",
+      verificationUrl: "https://www.cloudskillsboost.google/public_profiles/15156579",
+      hasImage: false
+    },
+    {
+      name: "AI Tutor",
+      issuer: "KodeKloud",
+      date: "January 2025",
+      credential: "Credential ID: eb06c5ec-4a37-43fa-b854-5e1ba95407bc",
+      description: "AI-powered tutoring system development and implementation for educational technology solutions",
+      verificationUrl: "https://kodekloud.com/certificate-verification/eb06c5ec-4a37-43fa-b854-5e1ba95407bc",
+      hasImage: false
+    },
+    {
+      name: "EFK Stack: Enterprise-Grade Logging and Monitoring",
+      issuer: "KodeKloud",
+      date: "January 2025",
+      credential: "Credential ID: 71d36fb1-fd7f-4f0b-946e-cdaa55bfedf1",
+      description: "Enterprise logging and monitoring using Elasticsearch, Fluentd, and Kibana for centralized logging and real-time analytics",
+      verificationUrl: "https://kodekloud.com/certificate-verification/71d36fb1-fd7f-4f0b-946e-cdaa55bfedf1",
       hasImage: false
     }
   ];

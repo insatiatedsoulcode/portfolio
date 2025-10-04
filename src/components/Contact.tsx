@@ -41,21 +41,21 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "deepak@example.com",
-      href: "mailto:deepak@example.com",
+      value: "pristinesine@gmail.com",
+      href: "mailto:pristinesine@gmail.com",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+91 98765 43210",
-      href: "tel:+919876543210",
+      value: "+91 9650801379",
+      href: "tel:+919650801379",
       color: "from-green-500 to-emerald-500"
     },
     {
       icon: MapPin,
       title: "Location",
-      value: "New Delhi, India",
+      value: "Varanasi, India",
       href: "#",
       color: "from-purple-500 to-pink-500"
     }
@@ -65,7 +65,7 @@ const Contact = () => {
     {
       name: "GitHub",
       icon: Github,
-      href: "https://github.com/deepakkumarsingh",
+      href: "https://github.com/insatiatedsoulcode",
       color: "hover:text-gray-300"
     },
     {

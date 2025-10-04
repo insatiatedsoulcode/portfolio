@@ -60,15 +60,7 @@ const Achievements = () => {
       type: "professional",
       impact: "Improved team productivity and reduced onboarding time by 20%"
     },
-    {
-      title: "AWS Certified Solutions Architect",
-      organization: "Amazon Web Services",
-      date: "August 2023",
-      description: "Achieved professional certification in cloud architecture and solutions design",
-      icon: Award,
-      type: "certification",
-      impact: "Professional Certification"
-    },
+  
     {
       title: "Open Source Contributor",
       organization: "GitHub",
@@ -78,42 +70,6 @@ const Achievements = () => {
       type: "contribution",
       impact: "1000+ GitHub contributions"
     },
-    {
-      title: "Tech Speaker",
-      organization: "Developer Conferences",
-      date: "2022-2023",
-      description: "Spoke at 5+ tech conferences about modern web development practices",
-      icon: Users,
-      type: "speaking",
-      impact: "5+ Conference Talks"
-    },
-    {
-      title: "AWS Certified Solutions Architect - Professional",
-      organization: "Amazon Web Services",
-      date: "2023",
-      description: "Advanced certification in designing distributed systems and enterprise applications on AWS cloud platform",
-      icon: Award,
-      type: "certification",
-      impact: "Professional Level Certification"
-    },
-    {
-      title: "Kubernetes Administrator (CKA)",
-      organization: "Cloud Native Computing Foundation",
-      date: "2022",
-      description: "Certified Kubernetes Administrator with expertise in cluster administration and container orchestration",
-      icon: Award,
-      type: "certification",
-      impact: "Industry Standard Certification"
-    },
-    {
-      title: "Startup Accelerator Graduate",
-      organization: "Y Combinator Style Program",
-      date: "June 2022",
-      description: "Successfully completed startup accelerator program with our SaaS product",
-      icon: TrendingUp,
-      type: "business",
-      impact: "Successful Program Completion"
-    }
   ];
 
   const stats = [
