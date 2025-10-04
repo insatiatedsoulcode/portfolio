@@ -365,7 +365,11 @@ const Education = () => {
                 <p className="text-xs text-gray-500 mb-2 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical' }}>{cert.credential}</p>
                 
                 <button 
-                  onClick={() => window.open(cert.verificationUrl, '_blank')}
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      window.open(cert.verificationUrl, '_blank', 'noopener,noreferrer');
+                    }
+                  }}
                   className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs font-medium rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
                 >
                   <ExternalLink className="w-3 h-3 mr-1" />
