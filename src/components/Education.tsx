@@ -343,33 +343,33 @@ const Education = () => {
 
         <motion.div
           variants={containerVariants}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
         >
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300"
+              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300"
             >
               <div className="text-center">
                 {/* Certificate Icon */}
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                  <Award className="w-8 h-8 text-white" />
+                <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <Award className="w-6 h-6 text-white" />
                 </div>
                 
-                <h4 className="text-lg font-bold text-white mb-2">{cert.name}</h4>
-                <p className="text-purple-400 font-semibold mb-2">{cert.issuer}</p>
-                <p className="text-gray-400 text-sm mb-3">{cert.date}</p>
-                <p className="text-gray-300 text-sm mb-3">{cert.description}</p>
-                <p className="text-xs text-gray-500 mb-3">{cert.credential}</p>
+                <h4 className="text-sm font-bold text-white mb-1 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{cert.name}</h4>
+                <p className="text-purple-400 font-semibold text-xs mb-1">{cert.issuer}</p>
+                <p className="text-gray-400 text-xs mb-2">{cert.date}</p>
+                <p className="text-gray-300 text-xs mb-2 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>{cert.description}</p>
+                <p className="text-xs text-gray-500 mb-2 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical' }}>{cert.credential}</p>
                 
                 <button 
                   onClick={() => window.open(cert.verificationUrl, '_blank')}
-                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
+                  className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs font-medium rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
                 >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  View Full Certificate
+                  <ExternalLink className="w-3 h-3 mr-1" />
+                  View Certificate
                 </button>
               </div>
             </motion.div>
