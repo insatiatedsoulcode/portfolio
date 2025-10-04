@@ -66,10 +66,10 @@ const Education = () => {
     {
       name: "Enterprise Product Management Fundamentals",
       issuer: "Microsoft",
-      date: "September 2025",
-      credential: "Credential ID: VWVDU72N8B5F",
-      description: "Advanced product management skills focusing on enterprise-level product strategy, planning, and execution",
-      verificationUrl: "https://learn.microsoft.com/api/credentials/share/en-us/VWVDU72N8B5F",
+      date: "September 28, 2025",
+      credential: "Course Certificate - Completed by Deepak Singh",
+      description: "Advanced product management skills focusing on enterprise-level product strategy, planning, and execution. 18 hours completion with skills in Product Requirements, Strategy, Roadmaps, Compliance Management, and Microsoft 365 integration.",
+      verificationUrl: "https://coursera.org/share/7e1fbe755a0d2eb58f7483dcd81175cf",
       hasImage: false
     },
     {
