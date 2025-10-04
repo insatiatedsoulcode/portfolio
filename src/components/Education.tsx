@@ -60,7 +60,7 @@ const Education = () => {
       date: "September 2025",
       credential: "Credential ID: 2Z3UDF566UC4",
       description: "Comprehensive DevOps fundamentals covering essential tools and practices for modern software development and deployment",
-      verificationUrl: "https://kodekloud.com/certificate-verification/2Z3UDF566UC4",
+      verificationUrl: "https://kodekloud.com/certificate/2Z3UDF566UC4",
       hasImage: false
     },
     {
@@ -69,7 +69,7 @@ const Education = () => {
       date: "September 2025",
       credential: "Credential ID: VWVDU72N8B5F",
       description: "Advanced product management skills focusing on enterprise-level product strategy, planning, and execution",
-      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/VWVDU72N8B5F",
+      verificationUrl: "https://learn.microsoft.com/api/credentials/share/en-us/VWVDU72N8B5F",
       hasImage: false
     },
     {
@@ -78,7 +78,7 @@ const Education = () => {
       date: "September 2025",
       credential: "Credential ID: GRRCKLJAOE8W",
       description: "Essential Git version control skills for DevOps professionals, covering branching, merging, and collaboration workflows",
-      verificationUrl: "https://kodekloud.com/certificate-verification/GRRCKLJAOE8W",
+      verificationUrl: "https://kodekloud.com/certificate/GRRCKLJAOE8W",
       hasImage: false
     },
     {
@@ -87,7 +87,7 @@ const Education = () => {
       date: "September 2025",
       credential: "Credential ID: 1VRFKZG4XIR5",
       description: "Introduction to Jenkins CI/CD pipeline automation, covering build automation, deployment, and continuous integration practices",
-      verificationUrl: "https://kodekloud.com/certificate-verification/1VRFKZG4XIR5",
+      verificationUrl: "https://kodekloud.com/certificate/1VRFKZG4XIR5",
       hasImage: false
     },
     {
@@ -96,7 +96,7 @@ const Education = () => {
       date: "August 2025",
       credential: "Credential ID: VV12R0IBL6I6",
       description: "Advanced React development skills including component architecture, state management, and modern front-end development practices",
-      verificationUrl: "https://www.credly.com/badges/VV12R0IBL6I6",
+      verificationUrl: "https://www.credly.com/badges/VV12R0IBL6I6/public_url",
       hasImage: false
     },
     {
@@ -105,7 +105,7 @@ const Education = () => {
       date: "August 2025",
       credential: "Credential ID: CL51521A2YB1",
       description: "Comprehensive machine learning course covering algorithms, data preprocessing, model training, and evaluation using Python",
-      verificationUrl: "https://www.credly.com/badges/CL51521A2YB1",
+      verificationUrl: "https://www.credly.com/badges/CL51521A2YB1/public_url",
       hasImage: false
     },
     {
@@ -114,7 +114,7 @@ const Education = () => {
       date: "July 2025",
       credential: "Credential ID: PBQEG0351M0V",
       description: "Advanced Python scripting and automation techniques for system administration, testing, and process optimization",
-      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/PBQEG0351M0V",
+      verificationUrl: "https://learn.microsoft.com/api/credentials/share/en-us/PBQEG0351M0V",
       hasImage: false
     },
     {
@@ -123,7 +123,7 @@ const Education = () => {
       date: "July 2025",
       credential: "Credential ID: C5BLVVQZD0E7",
       description: "Data analysis and visualization skills using Python libraries including pandas, matplotlib, and seaborn for business intelligence",
-      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/C5BLVVQZD0E7",
+      verificationUrl: "https://learn.microsoft.com/api/credentials/share/en-us/C5BLVVQZD0E7",
       hasImage: false
     },
     {
@@ -132,7 +132,7 @@ const Education = () => {
       date: "July 2025",
       credential: "Credential ID: 8NVWDWDR0GGV",
       description: "Comprehensive Python development certification covering advanced programming, web development, and Microsoft development tools",
-      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/8NVWDWDR0GGV",
+      verificationUrl: "https://learn.microsoft.com/api/credentials/share/en-us/8NVWDWDR0GGV",
       hasImage: false
     },
     {
@@ -141,7 +141,7 @@ const Education = () => {
       date: "July 2025",
       credential: "Credential ID: 05MQWN5FT197",
       description: "Core Python programming concepts including syntax, data structures, object-oriented programming, and best practices",
-      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/05MQWN5FT197",
+      verificationUrl: "https://learn.microsoft.com/api/credentials/share/en-us/05MQWN5FT197",
       hasImage: false
     },
     {
@@ -150,7 +150,7 @@ const Education = () => {
       date: "July 2025",
       credential: "Credential ID: EOWJ2P3DL5LW",
       description: "Full-stack web development using Python frameworks including Django and Flask for building scalable web applications",
-      verificationUrl: "https://learn.microsoft.com/en-us/certifications/verify/EOWJ2P3DL5LW",
+      verificationUrl: "https://learn.microsoft.com/api/credentials/share/en-us/EOWJ2P3DL5LW",
       hasImage: false
     },
     {
@@ -159,7 +159,7 @@ const Education = () => {
       date: "April 2025",
       credential: "Credential ID: 15156340",
       description: "Understanding Large Language Models, their architecture, applications, and implementation in real-world scenarios",
-      verificationUrl: "https://www.cloudskillsboost.google/public_profiles/15156340",
+      verificationUrl: "https://www.cloudskillsboost.google/public_profiles/15156340/badges",
       hasImage: false
     },
     {
@@ -168,7 +168,7 @@ const Education = () => {
       date: "April 2025",
       credential: "Credential ID: 15156579",
       description: "Ethical AI development principles, bias mitigation, fairness, and responsible AI practices for enterprise applications",
-      verificationUrl: "https://www.cloudskillsboost.google/public_profiles/15156579",
+      verificationUrl: "https://www.cloudskillsboost.google/public_profiles/15156579/badges",
       hasImage: false
     },
     {
@@ -177,7 +177,7 @@ const Education = () => {
       date: "January 2025",
       credential: "Credential ID: eb06c5ec-4a37-43fa-b854-5e1ba95407bc",
       description: "AI-powered tutoring system development and implementation for educational technology solutions",
-      verificationUrl: "https://kodekloud.com/certificate-verification/eb06c5ec-4a37-43fa-b854-5e1ba95407bc",
+      verificationUrl: "https://kodekloud.com/certificate/eb06c5ec-4a37-43fa-b854-5e1ba95407bc",
       hasImage: false
     },
     {
@@ -186,7 +186,7 @@ const Education = () => {
       date: "January 2025",
       credential: "Credential ID: 71d36fb1-fd7f-4f0b-946e-cdaa55bfedf1",
       description: "Enterprise logging and monitoring using Elasticsearch, Fluentd, and Kibana for centralized logging and real-time analytics",
-      verificationUrl: "https://kodekloud.com/certificate-verification/71d36fb1-fd7f-4f0b-946e-cdaa55bfedf1",
+      verificationUrl: "https://kodekloud.com/certificate/71d36fb1-fd7f-4f0b-946e-cdaa55bfedf1",
       hasImage: false
     }
   ];
