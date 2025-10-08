@@ -13,25 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Deepak Kumar Singh - Full Stack Developer & AI Enthusiast",
-  description: "Portfolio of Deepak Kumar Singh - A passionate Full Stack Developer with expertise in React, Node.js, AI/ML, and modern web technologies. Explore my projects, experience, and achievements.",
-  keywords: ["Deepak Kumar Singh", "Full Stack Developer", "React Developer", "Node.js", "AI/ML", "Web Development", "Portfolio"],
+  title: "Deepak Kumar Singh | Full Stack Developer",
+  description: "Experienced Full Stack Developer specializing in Java, Spring Boot, Angular, and MERN Stack. 9+ years in software development, implementation, and project management.",
+  keywords: ["Deepak Kumar Singh", "Full Stack Developer", "Java Developer", "Spring Boot", "Angular", "MERN Stack", "AWS", "DevOps", "Pune", "India", "Software Engineer", "Backend Developer", "Frontend Developer", "AI/ML", "Microservices", "CI/CD"],
   authors: [{ name: "Deepak Kumar Singh" }],
   creator: "Deepak Kumar Singh",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://deepakkumarsingh.dev",
-    title: "Deepak Kumar Singh - Full Stack Developer",
-    description: "Portfolio showcasing my work in Full Stack Development, AI/ML, and modern web technologies.",
-    siteName: "Deepak Kumar Singh Portfolio",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Deepak Kumar Singh - Full Stack Developer",
-    description: "Portfolio showcasing my work in Full Stack Development, AI/ML, and modern web technologies.",
-    creator: "@deepakkumarsingh",
-  },
+  publisher: "Deepak Kumar Singh",
   robots: {
     index: true,
     follow: true,
@@ -43,6 +30,26 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://singhdeepak.me",
+    title: "Deepak Kumar Singh | Full Stack Developer",
+    description: "Experienced Full Stack Developer specializing in Java, Spring Boot, Angular, and MERN Stack. 9+ years in software development, implementation, and project management.",
+    siteName: "Deepak Kumar Singh Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deepak Kumar Singh | Full Stack Developer",
+    description: "Experienced Full Stack Developer specializing in Java, Spring Boot, Angular, and MERN Stack. 9+ years in software development, implementation, and project management.",
+    creator: "@deepakkumarsingh",
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
+  category: "Technology",
+  classification: "Portfolio",
+  referrer: "origin-when-cross-origin",
 };
 
 export default function RootLayout({

@@ -130,8 +130,20 @@ const About = () => {
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-purple-300 mb-3">Cloud & DevOps</h4>
                 <div className="flex flex-wrap gap-2">
-                  {["AWS", "Docker", "Kubernetes", "Jenkins", "Terraform", "VPS", "Linux", "Microservices"].map((skill, index) => (
+                  {["AWS", "Docker", "Kubernetes", "Jenkins", "Terraform", "VPS", "Linux", "Microservices", "CI/CD", "GitHub Actions", "Google Cloud Platform"].map((skill, index) => (
                     <span key={index} className="px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-300 text-sm rounded-full border border-green-500/30">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* SEO & Performance */}
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-purple-300 mb-3">SEO & Performance</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["SEO Optimization", "Meta Tags", "Schema Markup", "Page Speed", "Core Web Vitals", "Google Analytics", "Search Console", "Performance Monitoring"].map((skill, index) => (
+                    <span key={index} className="px-3 py-1 bg-gradient-to-r from-indigo-500/20 to-blue-500/20 text-indigo-300 text-sm rounded-full border border-indigo-500/30">
                       {skill}
                     </span>
                   ))}
