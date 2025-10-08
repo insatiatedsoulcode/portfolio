@@ -57,8 +57,52 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Deepak Kumar Singh",
+    "jobTitle": "Full Stack Developer",
+    "description": "Experienced Full Stack Developer specializing in Java, Spring Boot, Angular, and MERN Stack. 9+ years in software development, implementation, and project management.",
+    "url": "https://singhdeepak.me",
+    "image": "https://singhdeepak.me/images/profile.jpg",
+    "sameAs": [
+      "https://www.linkedin.com/in/insatiatedsoul/",
+      "https://github.com/insatiatedsoulcode",
+      "https://twitter.com/deepakkumarsingh"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pune",
+      "addressCountry": "India"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "INTECH Creative Services Private Limited"
+    },
+    "knowsAbout": [
+      "Java", "Spring Boot", "Angular", "React", "Next.js", "AWS", "DevOps", 
+      "Docker", "Kubernetes", "Microservices", "CI/CD", "Python", "Node.js"
+    ],
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Amity University"
+      },
+      {
+        "@type": "EducationalOrganization", 
+        "name": "Manipal Institute of Technology"
+      }
+    ]
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
