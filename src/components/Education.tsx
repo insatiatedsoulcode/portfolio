@@ -78,7 +78,7 @@ const Education = () => {
       date: "September 2025",
       credential: "Credential ID: GRRCKLJAOE8W",
       description: "Essential Git version control skills for DevOps professionals, covering branching, merging, and collaboration workflows",
-      verificationUrl: "https://kodekloud.com/certificate/GRRCKLJAOE8W",
+      verificationUrl: "https://coursera.org/share/087e11899f306bef11eeff4d81626779",
       hasImage: false
     },
     {
@@ -96,7 +96,7 @@ const Education = () => {
       date: "August 2025",
       credential: "Credential ID: VV12R0IBL6I6",
       description: "Advanced React development skills including component architecture, state management, and modern front-end development practices",
-      verificationUrl: "https://www.credly.com/badges/VV12R0IBL6I6/public_url",
+      verificationUrl: "https://coursera.org/share/44ac33349bac906a0c3227b4b90d7d18",
       hasImage: false
     },
     {
