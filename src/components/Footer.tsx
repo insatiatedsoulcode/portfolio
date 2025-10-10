@@ -1,0 +1,157 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, Heart, Settings, ExternalLink } from "lucide-react";
+import Link from "next/link";
+
+const Footer = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-gray-900/50 backdrop-blur-sm border-t border-gray-800/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {/* Brand Section */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="text-2xl font-bold text-white">Deepak Kumar Singh</h3>
+            <p className="text-gray-300 leading-relaxed">
+              Full Stack Developer with 9+ years of experience in crafting robust and scalable web applications.
+            </p>
+            <div className="flex items-center space-x-2 text-purple-400">
+              <span>Made with</span>
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              >
+                <Heart className="w-4 h-4 fill-current" />
+              </motion.div>
+              <span>in India</span>
+            </div>
+          </motion.div>
+
+          {/* Quick Links */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Quick Links</h4>
+            <div className="space-y-2">
+              <Link href="/#about" className="block text-gray-300 hover:text-purple-400 transition-colors">
+                About Me
+              </Link>
+              <Link href="/#experience" className="block text-gray-300 hover:text-purple-400 transition-colors">
+                Experience
+              </Link>
+              <Link href="/#projects" className="block text-gray-300 hover:text-purple-400 transition-colors">
+                Projects
+              </Link>
+              <Link href="/ai" className="block text-gray-300 hover:text-purple-400 transition-colors">
+                AI
+              </Link>
+              <Link href="/#contact" className="block text-gray-300 hover:text-purple-400 transition-colors">
+                Contact
+              </Link>
+              <Link href="/poetry" className="block text-gray-300 hover:text-purple-400 transition-colors">
+                Poetry
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Connect & Admin */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Connect</h4>
+            <div className="flex space-x-4">
+              <motion.a
+                href="https://github.com/insatiatedsoulcode"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Github className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/insatiatedsoul/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Linkedin className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                href="mailto:deepak@example.com"
+                className="text-gray-300 hover:text-white transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Mail className="w-6 h-6" />
+              </motion.a>
+            </div>
+            
+            {/* Admin Dashboard Link */}
+            <div className="mt-6 pt-6 border-t border-gray-800">
+            <motion.a
+              href="https://storage.googleapis.com/www.singhdeepak.me/admin.html"
+              target="_blank"
+              rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 text-purple-300 font-medium rounded-lg border border-purple-500/30 hover:from-purple-600/30 hover:to-pink-600/30 transition-all duration-300 backdrop-blur-sm group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Settings className="w-4 h-4 mr-2 group-hover:rotate-90 transition-transform duration-300" />
+                Admin Dashboard
+                <ExternalLink className="w-3 h-3 ml-1 opacity-60" />
+              </motion.a>
+              <p className="text-xs text-gray-500 mt-2">
+                Manage portfolio submissions and analytics
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Bottom Section */}
+        <motion.div
+          variants={itemVariants}
+          className="mt-12 pt-8 border-t border-gray-800/50 text-center"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-sm">
+              © {currentYear} Deepak Kumar Singh. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-6 text-sm text-gray-400">
+              <span>Built with Next.js & Tailwind CSS</span>
+              <span>•</span>
+              <span>Deployed on Google Cloud</span>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

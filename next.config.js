@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable standalone output for App Engine deployment
-  output: 'standalone',
+  // Enable static export for Cloud Storage deployment
+  output: 'export',
+  trailingSlash: true,
   images: {
     unoptimized: true
   }
