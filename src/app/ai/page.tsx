@@ -1,22 +1,13 @@
-import { Metadata } from "next";
-import AIContentGenerator from "@/components/AIContentGenerator";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+"use client";
 
-export const metadata: Metadata = {
-  title: "AI Content Generator | Deepak Kumar Singh",
-  description: "AI-powered content generation tools for creating blog posts, email responses, SEO descriptions, and code snippets.",
-  keywords: "AI, content generation, blog posts, OpenAI, Gemini, Claude, artificial intelligence",
+import AIContentGenerator from "@/components/AIContentGenerator";
+
+const AIPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 py-20">
+      <AIContentGenerator />
+    </div>
+  );
 };
 
-export default function AIPage() {
-  return (
-    <>
-      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <Navigation />
-        <AIContentGenerator />
-      </main>
-      <Footer />
-    </>
-  );
-}
+export default AIPage;

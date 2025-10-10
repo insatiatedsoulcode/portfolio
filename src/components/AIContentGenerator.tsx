@@ -2,480 +2,251 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { 
-  Sparkles, 
-  FileText, 
-  Globe, 
-  Code, 
-  Loader2, 
-  Copy, 
-  Check,
-  Brain,
-  Zap
-} from "lucide-react";
-import { apiService, AIGenerationRequest, BlogPostRequest } from "../services/api";
+import { Sparkles, Send, Copy, Check } from "lucide-react";
+import { apiService } from "@/services/api";
+
+interface AIGenerationRequest {
+  prompt: string;
+  provider: string;
+  max_tokens: number;
+}
 
 const AIContentGenerator = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const [activeTab, setActiveTab] = useState<"generate" | "blog">("generate");
-  const [isGenerating, setIsGenerating] = useState(false);
+  const [prompt, setPrompt] = useState("");
+  const [selectedProvider, setSelectedProvider] = useState("openai");
+  const [maxTokens, setMaxTokens] = useState(100);
   const [generatedContent, setGeneratedContent] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Content Generation State
-  const [contentRequest, setContentRequest] = useState<AIGenerationRequest>({
-    prompt: "",
-    provider: "openai",
-    content_type: "blog_post",
-    max_tokens: 500,
-    temperature: 0.7,
-  });
+  const providers = [
+    { id: "openai", name: "OpenAI GPT", icon: "🤖" },
+    { id: "anthropic", name: "Anthropic Claude", icon: "🧠" },
+    { id: "google", name: "Google Gemini", icon: "💎" },
+  ];
 
-  // Blog Post Generation State
-  const [blogRequest, setBlogRequest] = useState<BlogPostRequest>({
-    topic: "",
-    style: "professional",
-    length: "medium",
-    keywords: [],
-    target_audience: "general",
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const handleContentGeneration = async () => {
-    if (!contentRequest.prompt.trim()) return;
+  const handleGenerate = async () => {
+    if (!prompt.trim()) return;
 
     setIsGenerating(true);
     try {
-      const response = await apiService.generateContent(contentRequest);
+      const request: AIGenerationRequest = {
+        prompt: prompt.trim(),
+        provider: selectedProvider,
+        max_tokens: maxTokens,
+      };
+
+      const response = await apiService.generateContent(request);
       setGeneratedContent(response.content);
     } catch (error) {
-      console.error("Content generation error:", error);
+      console.error("Error generating content:", error);
       setGeneratedContent("Sorry, there was an error generating content. Please try again.");
     } finally {
       setIsGenerating(false);
     }
   };
 
-  const handleBlogGeneration = async () => {
-    if (!blogRequest.topic.trim()) return;
-
-    setIsGenerating(true);
-    try {
-      const response = await apiService.generateBlogPost(blogRequest);
-      const blogContent = `
-# ${response.title}
-
-${response.content}
-
-## Meta Information
-- **Word Count**: ${response.word_count}
-- **Reading Time**: ${response.reading_time} minutes
-- **Tags**: ${response.tags.join(", ")}
-- **Meta Description**: ${response.meta_description}
-      `;
-      setGeneratedContent(blogContent);
-    } catch (error) {
-      console.error("Blog generation error:", error);
-      setGeneratedContent("Sorry, there was an error generating the blog post. Please try again.");
-    } finally {
-      setIsGenerating(false);
+  const handleCopy = async () => {
+    if (generatedContent) {
+      try {
+        await navigator.clipboard.writeText(generatedContent);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (error) {
+        console.error("Failed to copy text:", error);
+      }
     }
   };
-
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(generatedContent);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (error) {
-      console.error("Failed to copy:", error);
-    }
-  };
-
-  const contentTypes = [
-    { value: "blog_post", label: "Blog Post", icon: FileText },
-    { value: "email_response", label: "Email Response", icon: Globe },
-    { value: "seo_description", label: "SEO Description", icon: Sparkles },
-    { value: "code_snippet", label: "Code Snippet", icon: Code },
-  ];
-
-  const providers = [
-    { value: "openai", label: "OpenAI GPT", icon: Brain },
-    { value: "gemini", label: "Google Gemini", icon: Zap },
-    { value: "claude", label: "Anthropic Claude", icon: Sparkles },
-  ];
 
   return (
-    <section
-      ref={ref}
-      id="ai-generator"
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 py-20"
-    >
-      <div className="container mx-auto px-6">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12"
+      >
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+          AI Content Generator
+        </h1>
+        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          Generate creative and intelligent content using cutting-edge AI models
+        </p>
+      </motion.div>
+
+      <div className="grid lg:grid-cols-2 gap-8">
+        {/* Input Section */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="max-w-6xl mx-auto"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50"
         >
-          {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              AI-Powered <span className="text-blue-400">Content Generator</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Experience the power of AI in content creation. Generate blog posts, 
-              email responses, SEO descriptions, and code snippets using advanced AI models.
-            </p>
-          </motion.div>
+          <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+            <Sparkles className="w-6 h-6 mr-3 text-purple-400" />
+            Create Content
+          </h2>
 
-          {/* Tab Navigation */}
-          <motion.div variants={itemVariants} className="flex justify-center mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 border border-white/20">
-              <button
-                onClick={() => setActiveTab("generate")}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  activeTab === "generate"
-                    ? "bg-blue-600 text-white shadow-lg"
-                    : "text-gray-300 hover:text-white"
-                }`}
-              >
-                Content Generation
-              </button>
-              <button
-                onClick={() => setActiveTab("blog")}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  activeTab === "blog"
-                    ? "bg-blue-600 text-white shadow-lg"
-                    : "text-gray-300 hover:text-white"
-                }`}
-              >
-                Blog Post Creator
-              </button>
+          {/* Provider Selection */}
+          <div className="mb-6">
+            <label className="block text-white font-medium mb-3">AI Provider</label>
+            <div className="grid grid-cols-1 gap-3">
+              {providers.map((provider) => (
+                <button
+                  key={provider.id}
+                  onClick={() => setSelectedProvider(provider.id)}
+                  className={`p-3 rounded-lg border transition-all duration-200 text-left ${
+                    selectedProvider === provider.id
+                      ? "border-purple-500 bg-purple-500/20 text-white"
+                      : "border-gray-600 bg-gray-700/50 text-gray-300 hover:border-gray-500"
+                  }`}
+                >
+                  <div className="flex items-center">
+                    <span className="text-2xl mr-3">{provider.icon}</span>
+                    <span className="font-medium">{provider.name}</span>
+                  </div>
+                </button>
+              ))}
             </div>
-          </motion.div>
+          </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Input Panel */}
-            <motion.div variants={itemVariants}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="text-2xl font-semibold text-white mb-6">
-                  {activeTab === "generate" ? "Generate Content" : "Create Blog Post"}
-                </h3>
+          {/* Max Tokens */}
+          <div className="mb-6">
+            <label className="block text-white font-medium mb-3">
+              Max Tokens: {maxTokens}
+            </label>
+            <input
+              type="range"
+              min="50"
+              max="500"
+              value={maxTokens}
+              onChange={(e) => setMaxTokens(Number(e.target.value))}
+              className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
+            />
+            <div className="flex justify-between text-sm text-gray-400 mt-1">
+              <span>50</span>
+              <span>500</span>
+            </div>
+          </div>
 
-                {activeTab === "generate" ? (
-                  <div className="space-y-6">
-                    {/* Content Type Selection */}
-                    <div>
-                      <label className="block text-white font-medium mb-3">
-                        Content Type
-                      </label>
-                      <div className="grid grid-cols-2 gap-3">
-                        {contentTypes.map((type) => (
-                          <button
-                            key={type.value}
-                            onClick={() => setContentRequest({
-                              ...contentRequest,
-                              content_type: type.value
-                            })}
-                            className={`p-3 rounded-lg border transition-all duration-300 ${
-                              contentRequest.content_type === type.value
-                                ? "bg-blue-600 border-blue-500 text-white"
-                                : "bg-white/5 border-white/20 text-gray-300 hover:bg-white/10"
-                            }`}
-                          >
-                            <type.icon className="w-5 h-5 mx-auto mb-1" />
-                            <span className="text-sm">{type.label}</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
+          {/* Prompt Input */}
+          <div className="mb-6">
+            <label className="block text-white font-medium mb-3">
+              Enter your prompt
+            </label>
+            <textarea
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              placeholder="Describe what you want to generate..."
+              className="w-full h-32 px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors duration-200 resize-none"
+            />
+          </div>
 
-                    {/* AI Provider Selection */}
-                    <div>
-                      <label className="block text-white font-medium mb-3">
-                        AI Provider
-                      </label>
-                      <div className="space-y-2">
-                        {providers.map((provider) => (
-                          <button
-                            key={provider.value}
-                            onClick={() => setContentRequest({
-                              ...contentRequest,
-                              provider: provider.value
-                            })}
-                            className={`w-full p-3 rounded-lg border transition-all duration-300 flex items-center space-x-3 ${
-                              contentRequest.provider === provider.value
-                                ? "bg-blue-600 border-blue-500 text-white"
-                                : "bg-white/5 border-white/20 text-gray-300 hover:bg-white/10"
-                            }`}
-                          >
-                            <provider.icon className="w-5 h-5" />
-                            <span>{provider.label}</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
+          {/* Generate Button */}
+          <button
+            onClick={handleGenerate}
+            disabled={!prompt.trim() || isGenerating}
+            className="w-full flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+          >
+            {isGenerating ? (
+              <>
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                Generating...
+              </>
+            ) : (
+              <>
+                <Send className="w-5 h-5 mr-2" />
+                Generate Content
+              </>
+            )}
+          </button>
+        </motion.div>
 
-                    {/* Prompt Input */}
-                    <div>
-                      <label className="block text-white font-medium mb-2">
-                        Prompt
-                      </label>
-                      <textarea
-                        value={contentRequest.prompt}
-                        onChange={(e) => setContentRequest({
-                          ...contentRequest,
-                          prompt: e.target.value
-                        })}
-                        rows={4}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
-                        placeholder="Describe what you want to generate..."
-                      />
-                    </div>
-
-                    {/* Advanced Options */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-white font-medium mb-2">
-                          Max Tokens: {contentRequest.max_tokens}
-                        </label>
-                        <input
-                          type="range"
-                          min="100"
-                          max="2000"
-                          value={contentRequest.max_tokens}
-                          onChange={(e) => setContentRequest({
-                            ...contentRequest,
-                            max_tokens: parseInt(e.target.value)
-                          })}
-                          className="w-full"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-white font-medium mb-2">
-                          Creativity: {contentRequest.temperature}
-                        </label>
-                        <input
-                          type="range"
-                          min="0"
-                          max="2"
-                          step="0.1"
-                          value={contentRequest.temperature}
-                          onChange={(e) => setContentRequest({
-                            ...contentRequest,
-                            temperature: parseFloat(e.target.value)
-                          })}
-                          className="w-full"
-                        />
-                      </div>
-                    </div>
-
-                    <motion.button
-                      onClick={handleContentGeneration}
-                      disabled={isGenerating || !contentRequest.prompt.trim()}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isGenerating ? (
-                        <>
-                          <Loader2 className="w-5 h-5 animate-spin" />
-                          <span>Generating...</span>
-                        </>
-                      ) : (
-                        <>
-                          <Sparkles className="w-5 h-5" />
-                          <span>Generate Content</span>
-                        </>
-                      )}
-                    </motion.button>
-                  </div>
+        {/* Output Section */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-white flex items-center">
+              <Sparkles className="w-6 h-6 mr-3 text-purple-400" />
+              Generated Content
+            </h2>
+            {generatedContent && (
+              <button
+                onClick={handleCopy}
+                className="flex items-center px-3 py-2 bg-gray-700/50 hover:bg-gray-600/50 text-white rounded-lg transition-colors duration-200"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-4 h-4 mr-2 text-green-400" />
+                    Copied!
+                  </>
                 ) : (
-                  <div className="space-y-6">
-                    {/* Blog Topic */}
-                    <div>
-                      <label className="block text-white font-medium mb-2">
-                        Blog Topic *
-                      </label>
-                      <input
-                        type="text"
-                        value={blogRequest.topic}
-                        onChange={(e) => setBlogRequest({
-                          ...blogRequest,
-                          topic: e.target.value
-                        })}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        placeholder="e.g., Introduction to Machine Learning"
-                      />
-                    </div>
-
-                    {/* Style and Length */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-white font-medium mb-2">
-                          Writing Style
-                        </label>
-                        <select
-                          value={blogRequest.style}
-                          onChange={(e) => setBlogRequest({
-                            ...blogRequest,
-                            style: e.target.value
-                          })}
-                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        >
-                          <option value="professional">Professional</option>
-                          <option value="casual">Casual</option>
-                          <option value="technical">Technical</option>
-                          <option value="creative">Creative</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-white font-medium mb-2">
-                          Length
-                        </label>
-                        <select
-                          value={blogRequest.length}
-                          onChange={(e) => setBlogRequest({
-                            ...blogRequest,
-                            length: e.target.value
-                          })}
-                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        >
-                          <option value="short">Short (300-500 words)</option>
-                          <option value="medium">Medium (500-1000 words)</option>
-                          <option value="long">Long (1000+ words)</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    {/* Target Audience */}
-                    <div>
-                      <label className="block text-white font-medium mb-2">
-                        Target Audience
-                      </label>
-                      <select
-                        value={blogRequest.target_audience}
-                        onChange={(e) => setBlogRequest({
-                          ...blogRequest,
-                          target_audience: e.target.value
-                        })}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                      >
-                        <option value="general">General Audience</option>
-                        <option value="beginners">Beginners</option>
-                        <option value="professionals">Professionals</option>
-                        <option value="developers">Developers</option>
-                        <option value="business">Business</option>
-                      </select>
-                    </div>
-
-                    {/* Keywords */}
-                    <div>
-                      <label className="block text-white font-medium mb-2">
-                        Keywords (comma-separated)
-                      </label>
-                      <input
-                        type="text"
-                        value={blogRequest.keywords?.join(", ") || ""}
-                        onChange={(e) => setBlogRequest({
-                          ...blogRequest,
-                          keywords: e.target.value.split(",").map(k => k.trim()).filter(k => k)
-                        })}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                        placeholder="AI, machine learning, technology"
-                      />
-                    </div>
-
-                    <motion.button
-                      onClick={handleBlogGeneration}
-                      disabled={isGenerating || !blogRequest.topic.trim()}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isGenerating ? (
-                        <>
-                          <Loader2 className="w-5 h-5 animate-spin" />
-                          <span>Creating Blog Post...</span>
-                        </>
-                      ) : (
-                        <>
-                          <FileText className="w-5 h-5" />
-                          <span>Generate Blog Post</span>
-                        </>
-                      )}
-                    </motion.button>
-                  </div>
+                  <>
+                    <Copy className="w-4 h-4 mr-2" />
+                    Copy
+                  </>
                 )}
-              </div>
-            </motion.div>
+              </button>
+            )}
+          </div>
 
-            {/* Output Panel */}
-            <motion.div variants={itemVariants}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-2xl font-semibold text-white">
-                    Generated Content
-                  </h3>
-                  {generatedContent && (
-                    <motion.button
-                      onClick={copyToClipboard}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="p-2 bg-blue-600/20 hover:bg-blue-600/30 rounded-lg border border-blue-500/30 transition-all duration-300"
-                    >
-                      {copied ? (
-                        <Check className="w-5 h-5 text-green-400" />
-                      ) : (
-                        <Copy className="w-5 h-5 text-blue-400" />
-                      )}
-                    </motion.button>
-                  )}
-                </div>
-
-                <div className="h-96 overflow-y-auto">
-                  {generatedContent ? (
-                    <div className="prose prose-invert max-w-none">
-                      <pre className="text-white whitespace-pre-wrap font-mono text-sm leading-relaxed">
-                        {generatedContent}
-                      </pre>
-                    </div>
-                  ) : (
-                    <div className="flex items-center justify-center h-full text-gray-400">
-                      <div className="text-center">
-                        <Sparkles className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                        <p>Generated content will appear here</p>
-                        <p className="text-sm mt-2">Use the form to create amazing content with AI</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
+          <div className="min-h-[300px] bg-gray-900/50 rounded-lg p-4 border border-gray-700/50">
+            {generatedContent ? (
+              <div className="text-gray-300 whitespace-pre-wrap leading-relaxed">
+                {generatedContent}
               </div>
-            </motion.div>
+            ) : (
+              <div className="text-gray-500 text-center py-12">
+                <Sparkles className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                <p>Your generated content will appear here</p>
+              </div>
+            )}
           </div>
         </motion.div>
       </div>
-    </section>
+
+      {/* Features Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        className="mt-16 grid md:grid-cols-3 gap-6"
+      >
+        <div className="text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-xl border border-gray-700/50">
+          <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Sparkles className="w-6 h-6 text-purple-400" />
+          </div>
+          <h3 className="text-lg font-semibold text-white mb-2">Multiple AI Models</h3>
+          <p className="text-gray-400 text-sm">
+            Choose from OpenAI GPT, Anthropic Claude, and Google Gemini
+          </p>
+        </div>
+
+        <div className="text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-xl border border-gray-700/50">
+          <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Send className="w-6 h-6 text-blue-400" />
+          </div>
+          <h3 className="text-lg font-semibold text-white mb-2">Customizable Output</h3>
+          <p className="text-gray-400 text-sm">
+            Control token length and fine-tune your content generation
+          </p>
+        </div>
+
+        <div className="text-center p-6 bg-gray-800/30 backdrop-blur-sm rounded-xl border border-gray-700/50">
+          <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Copy className="w-6 h-6 text-green-400" />
+          </div>
+          <h3 className="text-lg font-semibold text-white mb-2">Easy Export</h3>
+          <p className="text-gray-400 text-sm">
+            Copy generated content with a single click
+          </p>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

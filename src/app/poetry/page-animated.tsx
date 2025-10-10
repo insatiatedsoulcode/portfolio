@@ -1,7 +1,29 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
-import { PenTool, Heart, Star } from "lucide-react";
+import { PenTool, Heart, Star, BookOpen } from "lucide-react";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
 
 const poems = [
   {
@@ -99,7 +121,10 @@ const poems = [
   },
 ];
 
-export default function PoetryPageStatic() {
+const categories = ["All", "Technology", "Nature", "Life", "Friendship"];
+const moods = ["All", "Inspiring", "Contemplative", "Reflective", "Nostalgic"];
+
+export default function PoetryPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <Navigation />
@@ -107,89 +132,130 @@ export default function PoetryPageStatic() {
       {/* Hero Section */}
       <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <div className="flex justify-center mb-6">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="flex justify-center mb-6"
+            >
               <div className="p-4 bg-purple-600/20 rounded-full">
                 <PenTool className="w-12 h-12 text-purple-400" />
               </div>
-            </div>
+            </motion.div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
+            >
               Poetry & <span className="text-purple-400">Words</span>
-            </h1>
+            </motion.h1>
             
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <motion.p
+              variants={itemVariants}
+              className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            >
               Where technology meets emotion, and code transforms into verse. 
               A collection of thoughts, dreams, and reflections from my journey 
               as a developer and a dreamer.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
       {/* Poetry Collection */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
-            My Poetry Collection
-          </h2>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl font-bold text-white text-center mb-12"
+            >
+              My Poetry Collection
+            </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {poems.map((poem, index) => {
-              const IconComponent = poem.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 group"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-2">
-                      <IconComponent className="w-5 h-5 text-purple-400" />
-                      <span className="text-sm text-purple-400 font-medium">
-                        {poem.category}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {poems.map((poem, index) => {
+                const IconComponent = poem.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 group"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-2">
+                        <IconComponent className="w-5 h-5 text-purple-400" />
+                        <span className="text-sm text-purple-400 font-medium">
+                          {poem.category}
+                        </span>
+                      </div>
+                      <span className="text-sm text-gray-400">{poem.date}</span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                      {poem.title}
+                    </h3>
+
+                    <div className="mb-4">
+                      <span className="inline-block px-3 py-1 bg-purple-600/20 text-purple-300 text-xs rounded-full">
+                        {poem.mood}
                       </span>
                     </div>
-                    <span className="text-sm text-gray-400">{poem.date}</span>
-                  </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
-                    {poem.title}
-                  </h3>
-
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 bg-purple-600/20 text-purple-300 text-xs rounded-full">
-                      {poem.mood}
-                    </span>
-                  </div>
-
-                  <div className="text-gray-300 leading-relaxed whitespace-pre-line">
-                    {poem.content}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                    <div className="text-gray-300 leading-relaxed whitespace-pre-line">
+                      {poem.content}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Inspiration Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-8">
-            Why I Write Poetry
-          </h2>
-          
-          <p className="text-lg text-gray-300 leading-relaxed mb-8">
-            Poetry is my bridge between the logical world of code and the emotional 
-            landscape of the human experience. Each poem is a snapshot of a moment, 
-            a feeling, or an insight that emerged from my journey as a developer, 
-            a student, and a dreamer.
-          </p>
-          
-          <p className="text-lg text-gray-300 leading-relaxed">
-            Just as I debug code to find the root cause, I write poetry to explore 
-            the depths of experience and find meaning in the chaos of life.
-          </p>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl font-bold text-white mb-8"
+            >
+              Why I Write Poetry
+            </motion.h2>
+            
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-300 leading-relaxed mb-8"
+            >
+              Poetry is my bridge between the logical world of code and the emotional 
+              landscape of the human experience. Each poem is a snapshot of a moment, 
+              a feeling, or an insight that emerged from my journey as a developer, 
+              a student, and a dreamer.
+            </motion.p>
+            
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-gray-300 leading-relaxed"
+            >
+              Just as I debug code to find the root cause, I write poetry to explore 
+              the depths of experience and find meaning in the chaos of life.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
     </main>
