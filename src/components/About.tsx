@@ -2,6 +2,63 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useState } from "react";
+
+// Skill Icon Component with Mobile Touch Support
+interface Skill {
+  name: string;
+  icon: string;
+  color: string;
+  textColor: string;
+  borderColor: string;
+}
+
+const SkillIcon = ({ skill }: { skill: Skill }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleTouchStart = () => {
+    setShowTooltip(true);
+  };
+
+  const handleTouchEnd = () => {
+    setTimeout(() => setShowTooltip(false), 2000); // Hide after 2 seconds
+  };
+
+  return (
+    <motion.div
+      whileHover={{ 
+        scale: 1.2,
+        rotateY: 10,
+        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(59, 130, 246, 0.3)"
+      }}
+      whileTap={{ scale: 0.9 }}
+      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
+      style={{ transformStyle: "preserve-3d" }}
+      transition={{ duration: 0.3 }}
+      title={skill.name}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onClick={() => {
+        setShowTooltip(!showTooltip);
+        setTimeout(() => setShowTooltip(false), 3000);
+      }}
+    >
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
+      </div>
+      
+      {/* Tooltip - Visible on hover or touch */}
+      <div className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl transition-all duration-300 pointer-events-none whitespace-nowrap z-10 ${
+        showTooltip ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+      }`}>
+        {skill.name}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
+      </div>
+      
+      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </motion.div>
+  );
+};
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -115,31 +172,10 @@ const About = () => {
                     { name: "Next.js", icon: "▲", color: "from-gray-500/20 to-slate-500/20", textColor: "text-gray-300", borderColor: "border-gray-500/30" },
                     { name: "CSS", icon: "🎨", color: "from-blue-500/20 to-indigo-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" }
                   ].map((skill, index) => (
-                    <motion.div
+                    <SkillIcon 
                       key={index}
-                      whileHover={{ 
-                        scale: 1.2,
-                        rotateY: 10,
-                        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(59, 130, 246, 0.3)"
-                      }}
-                      whileTap={{ scale: 0.9 }}
-                      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
-                      style={{ transformStyle: "preserve-3d" }}
-                      transition={{ duration: 0.3 }}
-                      title={skill.name}
-                    >
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
-                      </div>
-                      
-                      {/* Tooltip */}
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
-                        {skill.name}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
-                      </div>
-                      
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.div>
+                      skill={skill}
+                    />
                   ))}
                 </div>
               </div>
@@ -158,31 +194,10 @@ const About = () => {
                     { name: "Power BI", icon: "📈", color: "from-blue-500/20 to-cyan-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
                     { name: "Data Viz", icon: "📉", color: "from-indigo-500/20 to-purple-500/20", textColor: "text-indigo-300", borderColor: "border-indigo-500/30" }
                   ].map((skill, index) => (
-                    <motion.div
+                    <SkillIcon 
                       key={index}
-                      whileHover={{ 
-                        scale: 1.2,
-                        rotateY: 10,
-                        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(147, 51, 234, 0.3)"
-                      }}
-                      whileTap={{ scale: 0.9 }}
-                      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
-                      style={{ transformStyle: "preserve-3d" }}
-                      transition={{ duration: 0.3 }}
-                      title={skill.name}
-                    >
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
-                      </div>
-                      
-                      {/* Tooltip */}
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
-                        {skill.name}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
-                      </div>
-                      
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.div>
+                      skill={skill}
+                    />
                   ))}
                 </div>
               </div>
