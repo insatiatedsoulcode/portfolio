@@ -146,8 +146,9 @@ const Experience = () => {
           variants={containerVariants}
           className="relative"
         >
-          {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-pink-500 to-purple-500"></div>
+          {/* Timeline Line with 3D Effect */}
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-pink-500 to-purple-500 rounded-full shadow-2xl shadow-purple-500/30"></div>
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-400 via-pink-400 to-purple-400 rounded-full"></div>
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -157,47 +158,68 @@ const Experience = () => {
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
-              {/* Timeline Dot */}
-              <div className={`absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-white ${
-                exp.type === "current" ? "bg-gradient-to-r from-purple-500 to-pink-500" : "bg-gray-600"
-              }`}></div>
+              {/* Timeline Dot with 3D Effect */}
+              <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2">
+                <div className={`w-6 h-6 rounded-full border-2 border-white/20 shadow-2xl ${
+                  exp.type === "current" ? "shadow-purple-500/50" : "shadow-gray-500/30"
+                }`}></div>
+                <div className={`absolute top-1 left-1 w-4 h-4 rounded-full border-2 border-white ${
+                  exp.type === "current" ? "bg-gradient-to-br from-purple-400 to-pink-400" : "bg-gradient-to-br from-gray-500 to-gray-700"
+                } shadow-lg`}></div>
+                <div className={`absolute top-2 left-2 w-2 h-2 rounded-full ${
+                  exp.type === "current" ? "bg-white/60" : "bg-white/40"
+                } shadow-sm`}></div>
+              </div>
+
+              {/* Date in Free Space with 3D Effect */}
+              <div className={`absolute ${index % 2 === 0 ? "left-20 md:left-1/2 md:ml-8" : "right-20 md:right-1/2 md:mr-8"} top-0 flex items-center`}>
+                <motion.div 
+                  className="flex items-center text-sm text-gray-300 bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-500/50 shadow-2xl shadow-gray-900/50"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(147, 51, 234, 0.2)"
+                  }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Calendar className="w-4 h-4 mr-2 text-purple-400" />
+                  <span className="font-medium">{exp.period}</span>
+                </motion.div>
+              </div>
 
               {/* Content */}
               <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300"
+                  whileHover={{ 
+                    scale: 1.02,
+                    rotateY: 2,
+                    boxShadow: "0 25px 50px rgba(0,0,0,0.4), 0 0 30px rgba(147, 51, 234, 0.1)"
+                  }}
+                  className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-600/50 hover:border-purple-500/50 transition-all duration-300 shadow-2xl shadow-gray-900/30"
+                  style={{ transformStyle: "preserve-3d" }}
                 >
                   {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="text-3xl">{exp.companyLogo}</div>
-                      <div>
-                        <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
-                        <div className="flex items-center text-purple-400 font-semibold mb-2">
-                          <span>{exp.company}</span>
-                          <a 
-                            href={exp.companyWebsite}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="ml-2 hover:text-white transition-colors duration-200"
-                          >
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        </div>
+                  <div className="flex items-start space-x-3 mb-4">
+                    <div className="text-3xl">{exp.companyLogo}</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
+                      <div className="flex items-center text-purple-400 font-semibold mb-2">
+                        <span>{exp.company}</span>
+                        <a 
+                          href={exp.companyWebsite}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-2 hover:text-white transition-colors duration-200"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
                       </div>
-                    </div>
-                    <div className="flex flex-col sm:items-end text-sm text-gray-400">
-                      <div className="flex items-center mb-1">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {exp.period}
-                      </div>
-                      <div className="flex items-center">
+                      <div className="flex items-center text-sm text-gray-400">
                         <MapPin className="w-4 h-4 mr-1" />
                         {exp.location}
                       </div>
                     </div>
                   </div>
+
 
                   {/* Description */}
                   <p className="text-gray-300 mb-4 leading-relaxed">

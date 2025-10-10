@@ -75,7 +75,7 @@ const Hero = () => {
               
               <motion.a
                 href="/resume.pdf"
-                download
+                download="Deepak_Kumar_Singh_Resume.pdf"
                 className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

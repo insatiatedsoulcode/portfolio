@@ -68,8 +68,7 @@ const About = () => {
               and enterprise implementations. I&apos;ve successfully delivered government projects, optimized system 
               performance by 30%, and led teams across diverse technology domains. I hold a B.Tech from Manipal 
               Institute of Technology and am currently pursuing an Online MBA from Amity University. My academic 
-              excellence includes the National Science Olympiad Award 2006, presented by Mr. Y.S. Rajan (ISRO 
-              scientist and Dr. A.P.J. Abdul Kalam&apos;s friend), and All India Rank 239 in National Cyber Olympiad 2007.
+              excellence includes the National Science Olympiad Award 2006, presented by Mr. Y.S. Rajan (Former Distinguished Professor ISRO / DOS and Chairman, BOG, NIT Manipur. Member GoC M S Ramaiah UnivAS), and All India Rank 239 in National Cyber Olympiad 2007.
             </motion.p>
 
             {/* Stats */}
@@ -105,11 +104,42 @@ const About = () => {
               {/* Programming Languages & Frameworks */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-purple-300 mb-3">Programming & Frameworks</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["Core Java", "Spring Boot", "Python", "Node.js", "React", "Angular", "Next.js", "CSS"].map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 text-sm rounded-full border border-blue-500/30">
-                      {skill}
-                    </span>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    { name: "Core Java", icon: "☕", color: "from-orange-500/20 to-red-500/20", textColor: "text-orange-300", borderColor: "border-orange-500/30" },
+                    { name: "Spring Boot", icon: "🌱", color: "from-green-500/20 to-emerald-500/20", textColor: "text-green-300", borderColor: "border-green-500/30" },
+                    { name: "Python", icon: "🐍", color: "from-yellow-500/20 to-blue-500/20", textColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
+                    { name: "Node.js", icon: "🟢", color: "from-green-500/20 to-lime-500/20", textColor: "text-green-300", borderColor: "border-green-500/30" },
+                    { name: "React", icon: "⚛️", color: "from-blue-500/20 to-cyan-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "Angular", icon: "🅰️", color: "from-red-500/20 to-pink-500/20", textColor: "text-red-300", borderColor: "border-red-500/30" },
+                    { name: "Next.js", icon: "▲", color: "from-gray-500/20 to-slate-500/20", textColor: "text-gray-300", borderColor: "border-gray-500/30" },
+                    { name: "CSS", icon: "🎨", color: "from-blue-500/20 to-indigo-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" }
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ 
+                        scale: 1.2,
+                        rotateY: 10,
+                        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(59, 130, 246, 0.3)"
+                      }}
+                      whileTap={{ scale: 0.9 }}
+                      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
+                      style={{ transformStyle: "preserve-3d" }}
+                      transition={{ duration: 0.3 }}
+                      title={skill.name}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
+                      </div>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
+                        {skill.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
+                      </div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -117,11 +147,42 @@ const About = () => {
               {/* AI/ML & Data */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-purple-300 mb-3">AI/ML & Data</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["AI/ML", "AI/ML Strategy", "Prompt Engineering", "Credit-Scoring Models", "Risk Modeling", "Feature Engineering", "Microsoft Power BI", "Data Visualization"].map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 text-sm rounded-full border border-purple-500/30">
-                      {skill}
-                    </span>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    { name: "AI/ML", icon: "🤖", color: "from-purple-500/20 to-indigo-500/20", textColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                    { name: "AI Strategy", icon: "🧠", color: "from-purple-500/20 to-pink-500/20", textColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                    { name: "Prompt Engineering", icon: "✍️", color: "from-blue-500/20 to-purple-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "Credit Scoring", icon: "📊", color: "from-green-500/20 to-emerald-500/20", textColor: "text-green-300", borderColor: "border-green-500/30" },
+                    { name: "Risk Modeling", icon: "⚖️", color: "from-red-500/20 to-pink-500/20", textColor: "text-red-300", borderColor: "border-red-500/30" },
+                    { name: "Feature Engineering", icon: "⚙️", color: "from-yellow-500/20 to-orange-500/20", textColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
+                    { name: "Power BI", icon: "📈", color: "from-blue-500/20 to-cyan-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "Data Viz", icon: "📉", color: "from-indigo-500/20 to-purple-500/20", textColor: "text-indigo-300", borderColor: "border-indigo-500/30" }
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ 
+                        scale: 1.2,
+                        rotateY: 10,
+                        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(147, 51, 234, 0.3)"
+                      }}
+                      whileTap={{ scale: 0.9 }}
+                      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
+                      style={{ transformStyle: "preserve-3d" }}
+                      transition={{ duration: 0.3 }}
+                      title={skill.name}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
+                      </div>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
+                        {skill.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
+                      </div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -129,11 +190,44 @@ const About = () => {
               {/* Cloud & DevOps */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-purple-300 mb-3">Cloud & DevOps</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["AWS", "Docker", "Kubernetes", "Jenkins", "Terraform", "VPS", "Linux", "Microservices", "CI/CD", "GitHub Actions", "Google Cloud Platform"].map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-300 text-sm rounded-full border border-green-500/30">
-                      {skill}
-                    </span>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    { name: "AWS", icon: "☁️", color: "from-orange-500/20 to-yellow-500/20", textColor: "text-orange-300", borderColor: "border-orange-500/30" },
+                    { name: "Docker", icon: "🐳", color: "from-blue-500/20 to-cyan-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "Kubernetes", icon: "⚙️", color: "from-blue-500/20 to-indigo-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "Jenkins", icon: "🔧", color: "from-red-500/20 to-pink-500/20", textColor: "text-red-300", borderColor: "border-red-500/30" },
+                    { name: "Terraform", icon: "🏗️", color: "from-purple-500/20 to-indigo-500/20", textColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                    { name: "Linux", icon: "🐧", color: "from-yellow-500/20 to-orange-500/20", textColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
+                    { name: "Microservices", icon: "🔗", color: "from-green-500/20 to-emerald-500/20", textColor: "text-green-300", borderColor: "border-green-500/30" },
+                    { name: "CI/CD", icon: "🔄", color: "from-blue-500/20 to-purple-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "GitHub Actions", icon: "⚡", color: "from-gray-500/20 to-slate-500/20", textColor: "text-gray-300", borderColor: "border-gray-500/30" },
+                    { name: "GCP", icon: "🌐", color: "from-blue-500/20 to-green-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" }
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ 
+                        scale: 1.2,
+                        rotateY: 10,
+                        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(34, 197, 94, 0.3)"
+                      }}
+                      whileTap={{ scale: 0.9 }}
+                      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
+                      style={{ transformStyle: "preserve-3d" }}
+                      transition={{ duration: 0.3 }}
+                      title={skill.name}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
+                      </div>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
+                        {skill.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
+                      </div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -141,11 +235,42 @@ const About = () => {
               {/* SEO & Performance */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-purple-300 mb-3">SEO & Performance</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["SEO Optimization", "Meta Tags", "Schema Markup", "Page Speed", "Core Web Vitals", "Google Analytics", "Search Console", "Performance Monitoring"].map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-gradient-to-r from-indigo-500/20 to-blue-500/20 text-indigo-300 text-sm rounded-full border border-indigo-500/30">
-                      {skill}
-                    </span>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    { name: "SEO", icon: "🔍", color: "from-indigo-500/20 to-blue-500/20", textColor: "text-indigo-300", borderColor: "border-indigo-500/30" },
+                    { name: "Meta Tags", icon: "🏷️", color: "from-blue-500/20 to-cyan-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "Schema", icon: "📋", color: "from-purple-500/20 to-indigo-500/20", textColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                    { name: "Page Speed", icon: "⚡", color: "from-yellow-500/20 to-orange-500/20", textColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
+                    { name: "Web Vitals", icon: "📊", color: "from-green-500/20 to-emerald-500/20", textColor: "text-green-300", borderColor: "border-green-500/30" },
+                    { name: "Analytics", icon: "📈", color: "from-red-500/20 to-pink-500/20", textColor: "text-red-300", borderColor: "border-red-500/30" },
+                    { name: "Search Console", icon: "🔎", color: "from-blue-500/20 to-purple-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "Monitoring", icon: "📱", color: "from-gray-500/20 to-slate-500/20", textColor: "text-gray-300", borderColor: "border-gray-500/30" }
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ 
+                        scale: 1.2,
+                        rotateY: 10,
+                        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(99, 102, 241, 0.3)"
+                      }}
+                      whileTap={{ scale: 0.9 }}
+                      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
+                      style={{ transformStyle: "preserve-3d" }}
+                      transition={{ duration: 0.3 }}
+                      title={skill.name}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
+                      </div>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
+                        {skill.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
+                      </div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -153,11 +278,40 @@ const About = () => {
               {/* Databases & APIs */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-purple-300 mb-3">Databases & APIs</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["MongoDB", "SQL", "Redis", "REST", "API Design", "Postman"].map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 text-yellow-300 text-sm rounded-full border border-yellow-500/30">
-                      {skill}
-                    </span>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    { name: "MongoDB", icon: "🍃", color: "from-green-500/20 to-emerald-500/20", textColor: "text-green-300", borderColor: "border-green-500/30" },
+                    { name: "SQL", icon: "🗄️", color: "from-blue-500/20 to-indigo-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "Redis", icon: "🔴", color: "from-red-500/20 to-pink-500/20", textColor: "text-red-300", borderColor: "border-red-500/30" },
+                    { name: "REST", icon: "🔗", color: "from-purple-500/20 to-indigo-500/20", textColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                    { name: "API Design", icon: "⚙️", color: "from-yellow-500/20 to-orange-500/20", textColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
+                    { name: "Postman", icon: "📮", color: "from-orange-500/20 to-red-500/20", textColor: "text-orange-300", borderColor: "border-orange-500/30" }
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ 
+                        scale: 1.2,
+                        rotateY: 10,
+                        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(251, 191, 36, 0.3)"
+                      }}
+                      whileTap={{ scale: 0.9 }}
+                      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
+                      style={{ transformStyle: "preserve-3d" }}
+                      transition={{ duration: 0.3 }}
+                      title={skill.name}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
+                      </div>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
+                        {skill.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
+                      </div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -165,11 +319,42 @@ const About = () => {
               {/* Enterprise & Management */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-purple-300 mb-3">Enterprise & Management</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["ERP", "SAP", "SDLC", "Project Documentation", "Cybersecurity", "ISO 27001", "CMMI", "LMS"].map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-gradient-to-r from-red-500/20 to-pink-500/20 text-red-300 text-sm rounded-full border border-red-500/30">
-                      {skill}
-                    </span>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    { name: "ERP", icon: "🏢", color: "from-blue-500/20 to-indigo-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "SAP", icon: "📊", color: "from-blue-500/20 to-cyan-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
+                    { name: "SDLC", icon: "🔄", color: "from-purple-500/20 to-pink-500/20", textColor: "text-purple-300", borderColor: "border-purple-500/30" },
+                    { name: "Documentation", icon: "📝", color: "from-green-500/20 to-emerald-500/20", textColor: "text-green-300", borderColor: "border-green-500/30" },
+                    { name: "Cybersecurity", icon: "🔒", color: "from-red-500/20 to-pink-500/20", textColor: "text-red-300", borderColor: "border-red-500/30" },
+                    { name: "ISO 27001", icon: "🏆", color: "from-yellow-500/20 to-orange-500/20", textColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
+                    { name: "CMMI", icon: "📈", color: "from-indigo-500/20 to-purple-500/20", textColor: "text-indigo-300", borderColor: "border-indigo-500/30" },
+                    { name: "LMS", icon: "🎓", color: "from-purple-500/20 to-indigo-500/20", textColor: "text-purple-300", borderColor: "border-purple-500/30" }
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ 
+                        scale: 1.2,
+                        rotateY: 10,
+                        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(239, 68, 68, 0.3)"
+                      }}
+                      whileTap={{ scale: 0.9 }}
+                      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
+                      style={{ transformStyle: "preserve-3d" }}
+                      transition={{ duration: 0.3 }}
+                      title={skill.name}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
+                      </div>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
+                        {skill.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
+                      </div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -177,11 +362,36 @@ const About = () => {
               {/* Version Control */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-purple-300 mb-3">Version Control & Tools</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["Git", "GitHub"].map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-gradient-to-r from-gray-500/20 to-slate-500/20 text-gray-300 text-sm rounded-full border border-gray-500/30">
-                      {skill}
-                    </span>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    { name: "Git", icon: "🌿", color: "from-orange-500/20 to-red-500/20", textColor: "text-orange-300", borderColor: "border-orange-500/30" },
+                    { name: "GitHub", icon: "🐙", color: "from-gray-500/20 to-slate-500/20", textColor: "text-gray-300", borderColor: "border-gray-500/30" }
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ 
+                        scale: 1.2,
+                        rotateY: 10,
+                        boxShadow: "0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(107, 114, 128, 0.3)"
+                      }}
+                      whileTap={{ scale: 0.9 }}
+                      className={`relative w-12 h-12 bg-gradient-to-br ${skill.color} backdrop-blur-sm rounded-xl border ${skill.borderColor} shadow-lg cursor-pointer group`}
+                      style={{ transformStyle: "preserve-3d" }}
+                      transition={{ duration: 0.3 }}
+                      title={skill.name}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-2xl group-hover:scale-125 transition-transform duration-300">{skill.icon}</span>
+                      </div>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs font-medium rounded-lg border border-gray-700/50 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-10">
+                        {skill.name}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/95"></div>
+                      </div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
