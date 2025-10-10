@@ -1,0 +1,45 @@
+name: Deploy Portfolio Frontend to Google Cloud
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        cd frontend
+        npm ci
+        
+    - name: Build frontend
+      run: |
+        cd frontend
+        npm run build
+        
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v2
+      with:
+        credentials_json: ${{ secrets.GCP_SA_KEY }}
+        
+    - name: Setup Google Cloud CLI
+      uses: google-github-actions/setup-gcloud@v2
+      with:
+        project_id: deepak-portfolio-1759940202
+        
+    - name: Deploy to Cloud Storage
+      run: |
+        cd frontend
+        gsutil -m rsync -r -d out/ gs://www.singhdeepak.me/
