@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Heart, Settings, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Connect & Admin */}
+          {/* Connect */}
           <motion.div variants={itemVariants} className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Connect</h4>
             <div className="flex space-x-4">
@@ -110,25 +110,6 @@ const Footer = () => {
               >
                 <Mail className="w-6 h-6" />
               </motion.a>
-            </div>
-            
-            {/* Admin Dashboard Link */}
-            <div className="mt-6 pt-6 border-t border-gray-800">
-            <motion.a
-              href="https://storage.googleapis.com/www.singhdeepak.me/admin.html"
-              target="_blank"
-              rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 text-purple-300 font-medium rounded-lg border border-purple-500/30 hover:from-purple-600/30 hover:to-pink-600/30 transition-all duration-300 backdrop-blur-sm group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Settings className="w-4 h-4 mr-2 group-hover:rotate-90 transition-transform duration-300" />
-                Admin Dashboard
-                <ExternalLink className="w-3 h-3 ml-1 opacity-60" />
-              </motion.a>
-              <p className="text-xs text-gray-500 mt-2">
-                Manage portfolio submissions and analytics
-              </p>
             </div>
           </motion.div>
         </motion.div>

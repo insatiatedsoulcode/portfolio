@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles, Settings } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 const Navigation = () => {
@@ -27,7 +27,6 @@ const Navigation = () => {
     { name: "AI", href: "/ai", icon: Sparkles },
     { name: "Poetry", href: "/poetry", icon: PenTool },
     { name: "Contact", href: "/#contact", icon: Mail },
-    { name: "Admin", href: "https://storage.googleapis.com/www.singhdeepak.me/admin.html", icon: Settings },
   ];
 
   return (
