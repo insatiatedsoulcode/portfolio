@@ -5,6 +5,8 @@ import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Achievements from "@/components/Achievements";
+import Testimonials from "@/components/Testimonials";
+import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import AI from "@/components/AI";
 import AIAssistant from "@/components/AIAssistant";
@@ -23,6 +25,8 @@ export default function Home() {
         <Education />
         <Projects />
         <Achievements />
+        <Testimonials />
+        <Pricing />
         <AI />
         <Contact />
         <AIAssistant />

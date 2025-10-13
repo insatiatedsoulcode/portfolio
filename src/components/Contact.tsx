@@ -112,7 +112,7 @@ const Contact = () => {
                 🚀 Available for Projects
               </div>
               <div className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-sm font-semibold">
-                ⚡ < 2hrs Response Time
+                ⚡ &lt; 2hrs Response Time
               </div>
               <div className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full text-sm font-semibold">
                 ⭐ 5.0/5 Client Rating

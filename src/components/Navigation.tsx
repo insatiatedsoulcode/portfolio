@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles, BookOpen } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles, BookOpen, DollarSign, Star } from "lucide-react";
 import Link from "next/link";
+import Logo from "./Logo";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +25,8 @@ const Navigation = () => {
     { name: "Education", href: "/#education", icon: GraduationCap },
     { name: "Projects", href: "/#projects", icon: Code },
     { name: "Achievements", href: "/#achievements", icon: Award },
+    { name: "Testimonials", href: "/#testimonials", icon: Star },
+    { name: "Pricing", href: "/#pricing", icon: DollarSign },
     { name: "Blog", href: "/blog", icon: BookOpen },
     { name: "AI", href: "/ai", icon: Sparkles },
     { name: "Poetry", href: "/poetry", icon: PenTool },
@@ -46,9 +49,9 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             className="flex-shrink-0"
           >
-                   <Link href="/" className="text-2xl font-bold text-white">
-                     Deepak Kumar Singh
-                   </Link>
+            <Link href="/">
+              <Logo size="md" showText={true} animated={true} />
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation */}

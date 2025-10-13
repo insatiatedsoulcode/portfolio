@@ -6,7 +6,7 @@ import { CheckCircle, Clock, Globe, Star } from "lucide-react";
 const FreelanceBadge = () => {
   const stats = [
     { icon: CheckCircle, label: "Available", value: "Now", color: "text-green-400" },
-    { icon: Clock, label: "Response", value: "< 2hrs", color: "text-blue-400" },
+    { icon: Clock, label: "Response", value: "&lt; 2hrs", color: "text-blue-400" },
     { icon: Star, label: "Rating", value: "5.0/5", color: "text-yellow-400" },
     { icon: Globe, label: "Remote", value: "Global", color: "text-purple-400" },
   ];
