@@ -1,10 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles, BookOpen, DollarSign, Star } from "lucide-react";
 import Link from "next/link";
 import Logo from "./Logo";
+
+const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
+  ssr: false,
+});
+
+const AnimatePresence = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.AnimatePresence })), {
+  ssr: false,
+});
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);

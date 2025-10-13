@@ -1,6 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
+  ssr: false,
+});
 import { useInView } from "react-intersection-observer";
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, ExternalLink } from "lucide-react";
 

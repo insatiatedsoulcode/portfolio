@@ -1,7 +1,15 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
+  ssr: false,
+});
+
+const AnimatePresence = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.AnimatePresence })), {
+  ssr: false,
+});
 import { Bot, X, Send, Lightbulb, Code, Briefcase, BookOpen, MessageCircle } from "lucide-react";
 
 interface Message {

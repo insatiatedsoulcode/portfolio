@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
+  ssr: false,
+});
 import { Sparkles, Send, Copy, Check } from "lucide-react";
 import { apiService } from "@/services/api";
 

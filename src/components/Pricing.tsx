@@ -1,7 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { Check, Clock, Users, Zap, Star } from "lucide-react";
+
+const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
+  ssr: false,
+});
 
 const pricingPlans = [
   {
