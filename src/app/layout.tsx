@@ -73,7 +73,7 @@ export const metadata: Metadata = {
         url: "https://singhdeepak.me/images/profile-og.jpg",
         width: 1200,
         height: 630,
-        alt: "Deepak Kumar Singh - Senior Full Stack Developer",
+        alt: "Deepak Kumar Singh - Senior Full Stack Developer | Java, Spring Boot, AI/ML Expert | Available for Freelance Projects",
       },
     ],
   },
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     title: "Deepak Kumar Singh | Senior Full Stack Developer | Java, Spring Boot, AI/ML Expert",
     description: "Experienced Senior Full Stack Developer with 9+ years expertise in Java, Spring Boot, Angular, React, AI/ML, and AWS. Based in Pune, India.",
     creator: "@deepakkumarsingh",
-    images: ["https://singhdeepak.me/images/profile-twitter.jpg"],
+    images: ["https://singhdeepak.me/images/profile-og.jpg"],
   },
   verification: {
     google: "your-google-verification-code-here",
@@ -115,7 +115,7 @@ export default function RootLayout({
     "url": "https://singhdeepak.me",
     "image": "https://singhdeepak.me/images/profile.jpg",
     "email": "deepak@singhdeepak.me",
-    "telephone": "+91-XXXXXXXXXX",
+    "telephone": "+91-9650801379",
     "sameAs": [
       "https://www.linkedin.com/in/insatiatedsoul/",
       "https://github.com/insatiatedsoulcode",

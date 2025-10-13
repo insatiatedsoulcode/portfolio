@@ -102,9 +102,22 @@ const Contact = () => {
               Get In <span className="text-purple-400">Touch</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Have a project in mind or want to collaborate? I&apos;d love to hear from you.
-              Send me a message and I&apos;ll respond as soon as possible.
+              Have a project in mind or want to collaborate? I&apos;m currently available for freelance projects.
+              Send me a message and I&apos;ll respond within 2 hours.
             </p>
+            
+            {/* Freelance CTA */}
+            <div className="flex flex-wrap gap-4 justify-center mt-8">
+              <div className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full text-sm font-semibold">
+                🚀 Available for Projects
+              </div>
+              <div className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-sm font-semibold">
+                ⚡ < 2hrs Response Time
+              </div>
+              <div className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full text-sm font-semibold">
+                ⭐ 5.0/5 Client Rating
+              </div>
+            </div>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12">

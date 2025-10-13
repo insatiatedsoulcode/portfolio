@@ -35,9 +35,14 @@ const Hero = () => {
           {/* Left Content */}
           <div className="text-center lg:text-left">
             <motion.div variants={itemVariants} className="mb-6">
-              <span className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium rounded-full mb-4">
-                👋 Hello, I&apos;m
-              </span>
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
+                <span className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium rounded-full">
+                  👋 Hello, I&apos;m
+                </span>
+                <span className="inline-block px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-medium rounded-full">
+                  🚀 Available for Projects
+                </span>
+              </div>
             </motion.div>
 
             <motion.h1
@@ -70,7 +75,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Mail className="mr-2" size={20} />
-                Get In Touch
+                Start a Project
               </motion.a>
               
               <motion.a
@@ -83,6 +88,25 @@ const Hero = () => {
                 <Download className="mr-2" size={20} />
                 Download Resume
               </motion.a>
+            </motion.div>
+            
+            {/* Freelance Stats */}
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-3 gap-4 mb-8"
+            >
+              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <div className="text-2xl font-bold text-purple-400">9+</div>
+                <div className="text-sm text-gray-300">Years Experience</div>
+              </div>
+              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <div className="text-2xl font-bold text-green-400">< 2hrs</div>
+                <div className="text-sm text-gray-300">Response Time</div>
+              </div>
+              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <div className="text-2xl font-bold text-yellow-400">5.0/5</div>
+                <div className="text-sm text-gray-300">Client Rating</div>
+              </div>
             </motion.div>
 
             {/* Social Links */}

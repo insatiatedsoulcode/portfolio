@@ -8,6 +8,7 @@ import Achievements from "@/components/Achievements";
 import Contact from "@/components/Contact";
 import AI from "@/components/AI";
 import AIAssistant from "@/components/AIAssistant";
+import FreelanceBadge from "@/components/FreelanceBadge";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         <Navigation />
+        <FreelanceBadge />
         <Hero />
         <About />
         <Experience />
