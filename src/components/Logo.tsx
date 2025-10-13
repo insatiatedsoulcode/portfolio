@@ -27,7 +27,7 @@ const Logo = ({ size = "md", showText = true, animated = true }: LogoProps) => {
   };
 
   return (
-    <motion.div
+    <div
       className="flex items-center space-x-3"
       whileHover={animated ? { scale: 1.05 } : {}}
       transition={{ duration: 0.2 }}
@@ -44,7 +44,7 @@ const Logo = ({ size = "md", showText = true, animated = true }: LogoProps) => {
         
         {/* Sparkle Animation */}
         {animated && (
-          <motion.div
+          <div
             className="absolute -top-1 -right-1"
             animate={{
               rotate: [0, 360],
@@ -57,7 +57,7 @@ const Logo = ({ size = "md", showText = true, animated = true }: LogoProps) => {
             }}
           >
             <Sparkles className="w-4 h-4 text-yellow-400" />
-          </motion.div>
+          </div>
         )}
       </div>
 
@@ -72,7 +72,7 @@ const Logo = ({ size = "md", showText = true, animated = true }: LogoProps) => {
           </span>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

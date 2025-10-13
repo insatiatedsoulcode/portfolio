@@ -1,18 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles, BookOpen, DollarSign, Star } from "lucide-react";
 import Link from "next/link";
 import Logo from "./Logo";
-
-const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
-  ssr: false,
-});
-
-const AnimatePresence = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.AnimatePresence })), {
-  ssr: false,
-});
+import { motion, AnimatePresence } from "./MotionWrapper";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +34,7 @@ const Navigation = () => {
   ];
 
   return (
-    <motion.nav
+    <nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`professional-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -52,7 +44,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <motion.div
+          <div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="flex-shrink-0"
@@ -60,13 +52,13 @@ const Navigation = () => {
             <Link href="/">
               <Logo size="md" showText={true} animated={true} />
             </Link>
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item, index) => (
-                <motion.a
+                <a
                   key={item.name}
                   href={item.href}
                   initial={{ opacity: 0, y: -20 }}
@@ -75,7 +67,7 @@ const Navigation = () => {
                   className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-white/10"
                 >
                   {item.name}
-                </motion.a>
+                </a>
               ))}
             </div>
           </div>
@@ -95,7 +87,7 @@ const Navigation = () => {
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -105,7 +97,7 @@ const Navigation = () => {
               {navItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <motion.a
+                  <a
                     key={item.name}
                     href={item.href}
                     initial={{ opacity: 0, x: -20 }}
@@ -116,14 +108,14 @@ const Navigation = () => {
                   >
                     <Icon size={18} />
                     <span>{item.name}</span>
-                  </motion.a>
+                  </a>
                 );
               })}
             </div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 

@@ -94,14 +94,14 @@ const Contact = () => {
       className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 py-20"
     >
       <div className="container mx-auto px-6">
-        <motion.div
+        <div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="max-w-4xl mx-auto"
         >
           {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Get In <span className="text-purple-400">Touch</span>
             </h2>
@@ -122,11 +122,11 @@ const Contact = () => {
                 ⭐ 5.0/5 Client Rating
               </div>
             </div>
-          </motion.div>
+          </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Info */}
-            <motion.div variants={itemVariants} className="space-y-8">
+            <div variants={itemVariants} className="space-y-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h3 className="text-2xl font-semibold text-white mb-6">
                   Let&apos;s Connect
@@ -161,10 +161,10 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Contact Form */}
-            <motion.div variants={itemVariants}>
+            <div variants={itemVariants}>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
@@ -233,7 +233,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <motion.button
+                  <button
                     type="submit"
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.02 }}
@@ -251,12 +251,12 @@ const Contact = () => {
                         <span>Send Message</span>
                       </>
                     )}
-                  </motion.button>
+                  </button>
                 </form>
 
                 {/* Status Messages */}
                 {submitStatus.type && (
-                  <motion.div
+                  <div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-6 p-4 rounded-lg border"
@@ -290,12 +290,12 @@ const Contact = () => {
                         )}
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

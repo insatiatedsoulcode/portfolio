@@ -16,7 +16,7 @@ const FreelanceBadge = () => {
   ];
 
   return (
-    <motion.div
+    <div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
@@ -40,7 +40,7 @@ const FreelanceBadge = () => {
         })}
       </div>
       
-      <motion.button
+      <button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="w-full bg-white/20 hover:bg-white/30 text-white text-xs font-semibold py-2 px-3 rounded-lg transition-all duration-300 border border-white/30"
@@ -50,8 +50,8 @@ const FreelanceBadge = () => {
         }}
       >
         Start a Project
-      </motion.button>
-    </motion.div>
+      </button>
+    </div>
   );
 };
 

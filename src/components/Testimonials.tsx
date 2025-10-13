@@ -54,7 +54,7 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="professional-section">
       <div className="container mx-auto px-6">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -67,11 +67,11 @@ const Testimonials = () => {
           <p className="text-body-lg text-neutral-300 max-w-3xl mx-auto">
             What clients say about working with me. Real feedback from real projects.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={testimonial.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -110,12 +110,12 @@ const Testimonials = () => {
                 <p className="text-gray-400 text-xs">{testimonial.role}</p>
                 <p className="text-purple-300 text-xs font-medium">{testimonial.company}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Stats */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -138,7 +138,7 @@ const Testimonials = () => {
             <div className="text-3xl font-bold text-blue-400 mb-2">95%</div>
             <div className="text-gray-300 text-sm">Client Retention</div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

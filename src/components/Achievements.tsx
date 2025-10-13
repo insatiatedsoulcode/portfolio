@@ -127,35 +127,35 @@ const Achievements = () => {
   return (
     <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           ref={ref}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="text-center mb-16"
         >
-          <motion.h2
+          <h2
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Achievements</span> & Recognition
-          </motion.h2>
-          <motion.p
+          </h2>
+          <p
             variants={itemVariants}
             className="text-xl text-gray-300 max-w-3xl mx-auto"
           >
             Milestones and recognition in my professional journey
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Stats Grid */}
-        <motion.div
+        <div
           variants={containerVariants}
           className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <motion.div
+              <div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
@@ -166,20 +166,20 @@ const Achievements = () => {
                 </div>
                 <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
                 <div className="text-gray-300 text-sm">{stat.label}</div>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* Achievements Grid */}
-        <motion.div
+        <div
           variants={containerVariants}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {achievements.map((achievement, index) => {
             const Icon = achievement.icon;
             return (
-              <motion.div
+              <div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
@@ -277,17 +277,17 @@ const Achievements = () => {
                     {achievement.impact}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* Call to Action */}
-        <motion.div
+        <div
           variants={itemVariants}
           className="text-center mt-16"
         >
-          <motion.div
+          <div
             className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/30"
             whileHover={{ scale: 1.02 }}
           >
@@ -297,16 +297,16 @@ const Achievements = () => {
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Let&apos;s collaborate on your next big project and create something amazing that makes a real impact.
             </p>
-            <motion.a
+            <a
               href="#contact"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Start a Project
-            </motion.a>
-          </motion.div>
-        </motion.div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

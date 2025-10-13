@@ -64,7 +64,7 @@ const AIContentGenerator = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <motion.div
+      <div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -76,11 +76,11 @@ const AIContentGenerator = () => {
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
           Generate creative and intelligent content using cutting-edge AI models
         </p>
-      </motion.div>
+      </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Input Section */}
-        <motion.div
+        <div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -164,10 +164,10 @@ const AIContentGenerator = () => {
               </>
             )}
           </button>
-        </motion.div>
+        </div>
 
         {/* Output Section */}
-        <motion.div
+        <div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -210,11 +210,11 @@ const AIContentGenerator = () => {
               </div>
             )}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Features Section */}
-      <motion.div
+      <div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
@@ -249,7 +249,7 @@ const AIContentGenerator = () => {
             Copy generated content with a single click
           </p>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

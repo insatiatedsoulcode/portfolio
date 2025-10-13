@@ -84,32 +84,32 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           ref={ref}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="text-center mb-16"
         >
-          <motion.h2
+          <h2
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
             Featured <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Projects</span>
-          </motion.h2>
-          <motion.p
+          </h2>
+          <p
             variants={itemVariants}
             className="text-xl text-gray-300 max-w-3xl mx-auto"
           >
             A showcase of my recent work and the technologies I love to work with
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        <motion.div
+        <div
           variants={containerVariants}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {projects.map((project, index) => (
-            <motion.div
+            <div
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
@@ -131,7 +131,7 @@ const Projects = () => {
                     </span>
                   </div>
                   <div className="flex space-x-2">
-                    <motion.a
+                    <a
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -140,8 +140,8 @@ const Projects = () => {
                       whileTap={{ scale: 0.9 }}
                     >
                       <Github className="w-4 h-4 text-gray-300" />
-                    </motion.a>
-                    <motion.a
+                    </a>
+                    <a
                       href={project.links.live}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -150,7 +150,7 @@ const Projects = () => {
                       whileTap={{ scale: 0.9 }}
                     >
                       <ExternalLink className="w-4 h-4 text-gray-300" />
-                    </motion.a>
+                    </a>
                   </div>
                 </div>
 
@@ -200,16 +200,16 @@ const Projects = () => {
                   {project.impact}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* View More Button */}
-        <motion.div
+        <div
           variants={itemVariants}
           className="text-center mt-12"
         >
-          <motion.a
+          <a
             href="https://github.com/deepakkumarsingh"
             target="_blank"
             rel="noopener noreferrer"
@@ -219,8 +219,8 @@ const Projects = () => {
           >
             <Github className="mr-2" size={20} />
             View All Projects on GitHub
-          </motion.a>
-        </motion.div>
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -126,27 +126,27 @@ const Experience = () => {
   return (
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           ref={ref}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="text-center mb-16"
         >
-          <motion.h2
+          <h2
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
             Work <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Experience</span>
-          </motion.h2>
-          <motion.p
+          </h2>
+          <p
             variants={itemVariants}
             className="text-xl text-gray-300 max-w-3xl mx-auto"
           >
             My professional journey and the impact I&apos;ve made along the way
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        <motion.div
+        <div
           variants={containerVariants}
           className="relative"
         >
@@ -155,7 +155,7 @@ const Experience = () => {
           <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-400 via-pink-400 to-purple-400 rounded-full"></div>
 
           {experiences.map((exp, index) => (
-            <motion.div
+            <div
               key={index}
               variants={itemVariants}
               className={`relative flex items-center mb-12 ${
@@ -177,7 +177,7 @@ const Experience = () => {
 
               {/* Date in Free Space with 3D Effect */}
               <div className={`absolute ${index % 2 === 0 ? "left-20 md:left-1/2 md:ml-8" : "right-20 md:right-1/2 md:mr-8"} top-0 flex items-center`}>
-                <motion.div 
+                <div 
                   className="flex items-center text-sm text-gray-300 bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-500/50 shadow-2xl shadow-gray-900/50"
                   whileHover={{ 
                     scale: 1.05,
@@ -187,12 +187,12 @@ const Experience = () => {
                 >
                   <Calendar className="w-4 h-4 mr-2 text-purple-400" />
                   <span className="font-medium">{exp.period}</span>
-                </motion.div>
+                </div>
               </div>
 
               {/* Content */}
               <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
-                <motion.div
+                <div
                   whileHover={{ 
                     scale: 1.02,
                     rotateY: 2,
@@ -251,11 +251,11 @@ const Experience = () => {
                       </span>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -29,7 +29,7 @@ const SkillIcon = ({ skill }: { skill: Skill }) => {
   };
 
   return (
-    <motion.div
+    <div
       whileHover={{ 
         scale: 1.2,
         rotateY: 10,
@@ -60,7 +60,7 @@ const SkillIcon = ({ skill }: { skill: Skill }) => {
       </div>
       
       <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -95,7 +95,7 @@ const About = () => {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+        <div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
@@ -104,14 +104,14 @@ const About = () => {
         >
           {/* Left Content */}
           <div>
-            <motion.h2
+            <h2
               variants={itemVariants}
               className="text-4xl md:text-5xl font-bold text-white mb-6"
             >
               About <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Me</span>
-            </motion.h2>
+            </h2>
             
-            <motion.p
+            <p
               variants={itemVariants}
               className="text-lg text-gray-300 mb-6 leading-relaxed"
             >
@@ -119,9 +119,9 @@ const About = () => {
               top-tier companies like INTECH Creative Services, Complinity Technology, Tashee Linux Services, 
               Quality Council of India, and Nav Info Tech. I specialize in Java development, AI/ML solutions, 
               enterprise implementations, and government project management.
-            </motion.p>
+            </p>
             
-            <motion.p
+            <p
               variants={itemVariants}
               className="text-lg text-gray-300 mb-8 leading-relaxed"
             >
@@ -130,10 +130,10 @@ const About = () => {
               performance by 30%, and led teams across diverse technology domains. I hold a B.Tech from Manipal 
               Institute of Technology and am currently pursuing an Online MBA from Amity University. My academic 
               excellence includes the National Science Olympiad Award 2006, presented by Mr. Y.S. Rajan (Former Distinguished Professor ISRO / DOS and Chairman, BOG, NIT Manipur. Member GoC M S Ramaiah UnivAS), and All India Rank 239 in National Cyber Olympiad 2007.
-            </motion.p>
+            </p>
 
             {/* Stats */}
-            <motion.div
+            <div
               variants={itemVariants}
               className="grid grid-cols-2 gap-6 mb-8"
             >
@@ -145,15 +145,15 @@ const About = () => {
                 <div className="text-3xl font-bold text-pink-400 mb-2">1M+</div>
                 <div className="text-gray-300">Users Served</div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.a
+            <a
               variants={itemVariants}
               href="#contact"
               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
             >
               Let&apos;s Work Together
-            </motion.a>
+            </a>
           </div>
 
           {/* Right Content - Skills & Hobbies */}
@@ -222,7 +222,7 @@ const About = () => {
                     { name: "GitHub Actions", icon: "⚡", color: "from-gray-500/20 to-slate-500/20", textColor: "text-gray-300", borderColor: "border-gray-500/30" },
                     { name: "GCP", icon: "🌐", color: "from-blue-500/20 to-green-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" }
                   ].map((skill, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       whileHover={{ 
                         scale: 1.2,
@@ -246,7 +246,7 @@ const About = () => {
                       </div>
                       
                       <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -265,7 +265,7 @@ const About = () => {
                     { name: "Search Console", icon: "🔎", color: "from-blue-500/20 to-purple-500/20", textColor: "text-blue-300", borderColor: "border-blue-500/30" },
                     { name: "Monitoring", icon: "📱", color: "from-gray-500/20 to-slate-500/20", textColor: "text-gray-300", borderColor: "border-gray-500/30" }
                   ].map((skill, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       whileHover={{ 
                         scale: 1.2,
@@ -289,7 +289,7 @@ const About = () => {
                       </div>
                       
                       <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -306,7 +306,7 @@ const About = () => {
                     { name: "API Design", icon: "⚙️", color: "from-yellow-500/20 to-orange-500/20", textColor: "text-yellow-300", borderColor: "border-yellow-500/30" },
                     { name: "Postman", icon: "📮", color: "from-orange-500/20 to-red-500/20", textColor: "text-orange-300", borderColor: "border-orange-500/30" }
                   ].map((skill, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       whileHover={{ 
                         scale: 1.2,
@@ -330,7 +330,7 @@ const About = () => {
                       </div>
                       
                       <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -349,7 +349,7 @@ const About = () => {
                     { name: "CMMI", icon: "📈", color: "from-indigo-500/20 to-purple-500/20", textColor: "text-indigo-300", borderColor: "border-indigo-500/30" },
                     { name: "LMS", icon: "🎓", color: "from-purple-500/20 to-indigo-500/20", textColor: "text-purple-300", borderColor: "border-purple-500/30" }
                   ].map((skill, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       whileHover={{ 
                         scale: 1.2,
@@ -373,7 +373,7 @@ const About = () => {
                       </div>
                       
                       <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -386,7 +386,7 @@ const About = () => {
                     { name: "Git", icon: "🌿", color: "from-orange-500/20 to-red-500/20", textColor: "text-orange-300", borderColor: "border-orange-500/30" },
                     { name: "GitHub", icon: "🐙", color: "from-gray-500/20 to-slate-500/20", textColor: "text-gray-300", borderColor: "border-gray-500/30" }
                   ].map((skill, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       whileHover={{ 
                         scale: 1.2,
@@ -410,7 +410,7 @@ const About = () => {
                       </div>
                       
                       <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -442,7 +442,7 @@ const About = () => {
                     description: "Discovering new cultures and perspectives"
                   }
                 ].map((hobby, index) => (
-                  <motion.div
+                  <div
                     key={index}
                     variants={itemVariants}
                     className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 group"
@@ -454,12 +454,12 @@ const About = () => {
                     <p className="text-xs text-gray-400 leading-relaxed">
                       {hobby.description}
                     </p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

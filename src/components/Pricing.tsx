@@ -68,7 +68,7 @@ const Pricing = () => {
   return (
     <section id="pricing" className="professional-section">
       <div className="container mx-auto px-6">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -81,13 +81,13 @@ const Pricing = () => {
           <p className="text-body-lg text-neutral-300 max-w-3xl mx-auto">
             Transparent pricing for all types of projects. Choose the plan that fits your needs.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {pricingPlans.map((plan, index) => {
             const Icon = plan.icon;
             return (
-              <motion.div
+              <div
                 key={plan.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -140,7 +140,7 @@ const Pricing = () => {
                 </div>
 
                 {/* CTA Button */}
-                <motion.button
+                <button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className={`w-full ${
@@ -154,14 +154,14 @@ const Pricing = () => {
                   }}
                 >
                   Get Started
-                </motion.button>
-              </motion.div>
+                </button>
+              </div>
             );
           })}
         </div>
 
         {/* Additional Info */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -188,7 +188,7 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

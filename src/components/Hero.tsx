@@ -1,11 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { Download, Github, Linkedin, Mail, ChevronDown } from "lucide-react";
-
-const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
-  ssr: false,
-});
 
 const Hero = () => {
   const containerVariants = {
@@ -30,15 +25,10 @@ const Hero = () => {
   return (
     <section id="home" className="professional-section min-h-screen flex items-center justify-center pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid lg:grid-cols-2 gap-12 items-center"
-        >
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left">
-            <motion.div variants={itemVariants} className="mb-6">
+            <div className="mb-6">
               <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
                 <span className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium rounded-full">
                   👋 Hello, I&apos;m
@@ -47,58 +37,42 @@ const Hero = () => {
                   🚀 Available for Projects
                 </span>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={itemVariants}
-              className="text-display text-white mb-6"
-            >
+            <h1 className="text-display text-white mb-6">
               Deepak Kumar
               <span className="block bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">
                 Singh
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-xl text-gray-300 mb-8 leading-relaxed"
-            >
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
               Senior Full-Stack Software Engineer at INTECH Creative Services
               <br />
               Building innovative software solutions and leading development teams
-            </motion.p>
+            </p>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
-            >
-              <motion.a
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+              <a
                 href="#contact"
                 className="professional-button inline-flex items-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 <Mail className="mr-2" size={20} />
                 Start a Project
-              </motion.a>
+              </a>
               
-              <motion.a
+              <a
                 href="/resume.pdf"
                 download="Deepak_Kumar_Singh_Resume.pdf"
                 className="professional-button-secondary inline-flex items-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 <Download className="mr-2" size={20} />
                 Download Resume
-              </motion.a>
-            </motion.div>
+              </a>
+            </div>
             
             {/* Professional Stats */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-3 gap-4 mb-8"
-            >
+            <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="professional-stat">
                 <div className="professional-stat-value">9+</div>
                 <div className="professional-stat-label">Years Experience</div>
@@ -111,14 +85,11 @@ const Hero = () => {
                 <div className="professional-stat-value">5.0/5</div>
                 <div className="professional-stat-label">Client Rating</div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Social Links */}
-            <motion.div
-              variants={itemVariants}
-              className="flex justify-center lg:justify-start space-x-6"
-            >
-              <motion.a
+            <div className="flex justify-center lg:justify-start space-x-6">
+              <a
                 href="https://github.com/deepakkumarsingh"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -126,8 +97,8 @@ const Hero = () => {
                 whileHover={{ scale: 1.2 }}
               >
                 <Github size={24} />
-              </motion.a>
-              <motion.a
+              </a>
+              <a
                 href="https://www.linkedin.com/in/insatiatedsoul/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -135,24 +106,24 @@ const Hero = () => {
                 whileHover={{ scale: 1.2 }}
               >
                 <Linkedin size={24} />
-              </motion.a>
-              <motion.a
+              </a>
+              <a
                 href="mailto:deepak@example.com"
                 className="text-gray-400 hover:text-white transition-colors duration-300"
                 whileHover={{ scale: 1.2 }}
               >
                 <Mail size={24} />
-              </motion.a>
-            </motion.div>
+              </a>
+            </div>
           </div>
 
           {/* Right Content - Profile Image */}
-          <motion.div
+          <div
             variants={itemVariants}
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              <motion.div
+              <div
                 className="w-80 h-80 lg:w-96 lg:h-96 relative"
                 animate={{
                   rotateY: [0, 5, -5, 0],
@@ -169,10 +140,10 @@ const Hero = () => {
                     <span className="text-6xl lg:text-8xl">👨‍💻</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
               
               {/* Floating Elements */}
-              <motion.div
+              <div
                 className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center"
                 animate={{
                   y: [0, -10, 0],
@@ -185,9 +156,9 @@ const Hero = () => {
                 }}
               >
                 <span className="text-2xl">🚀</span>
-              </motion.div>
+              </div>
               
-              <motion.div
+              <div
                 className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center"
                 animate={{
                   y: [0, 10, 0],
@@ -200,27 +171,27 @@ const Hero = () => {
                 }}
               >
                 <span className="text-xl">💡</span>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Scroll Indicator */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
-          <motion.div
+          <div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center text-white/60"
           >
             <span className="text-sm mb-2">Scroll Down</span>
             <ChevronDown size={24} />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
