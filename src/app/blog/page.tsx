@@ -91,12 +91,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
       <div className="container mx-auto px-6 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Tech <span className="text-purple-400">Blog</span>
           </h1>
@@ -104,12 +99,12 @@ export default function BlogPage() {
             Insights, tutorials, and best practices in software development, AI/ML, 
             and enterprise architecture from my 9+ years of experience
           </p>
-        </motion.div>
+        </div>
         
         {/* Blog Posts Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post, index) => (
-            <motion.article
+            <article
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -167,20 +162,20 @@ export default function BlogPage() {
               </div>
 
               {/* Read More Button */}
-              <motion.button
+              <button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full mt-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 opacity-50 cursor-not-allowed"
                 disabled
               >
                 {post.status === "coming-soon" ? "Coming Soon" : "Read More"}
-              </motion.button>
-            </motion.article>
+              </button>
+            </article>
           ))}
         </div>
 
         {/* Newsletter Signup */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
@@ -200,15 +195,15 @@ export default function BlogPage() {
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors duration-300"
             />
-            <motion.button
+            <button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
             >
               Subscribe
-            </motion.button>
+            </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
