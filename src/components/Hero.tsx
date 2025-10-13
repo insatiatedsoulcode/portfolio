@@ -24,8 +24,8 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="home" className="professional-section min-h-screen flex items-center justify-center pt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -47,10 +47,10 @@ const Hero = () => {
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+              className="text-display text-white mb-6"
             >
               Deepak Kumar
-              <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">
                 Singh
               </span>
             </motion.h1>
@@ -70,7 +70,7 @@ const Hero = () => {
             >
               <motion.a
                 href="#contact"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105"
+                className="professional-button inline-flex items-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -81,7 +81,7 @@ const Hero = () => {
               <motion.a
                 href="/resume.pdf"
                 download="Deepak_Kumar_Singh_Resume.pdf"
-                className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105"
+                className="professional-button-secondary inline-flex items-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -90,22 +90,22 @@ const Hero = () => {
               </motion.a>
             </motion.div>
             
-            {/* Freelance Stats */}
+            {/* Professional Stats */}
             <motion.div
               variants={itemVariants}
               className="grid grid-cols-3 gap-4 mb-8"
             >
-              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                <div className="text-2xl font-bold text-purple-400">9+</div>
-                <div className="text-sm text-gray-300">Years Experience</div>
+              <div className="professional-stat">
+                <div className="professional-stat-value">9+</div>
+                <div className="professional-stat-label">Years Experience</div>
               </div>
-              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                <div className="text-2xl font-bold text-green-400">&lt; 2hrs</div>
-                <div className="text-sm text-gray-300">Response Time</div>
+              <div className="professional-stat">
+                <div className="professional-stat-value">&lt; 2hrs</div>
+                <div className="professional-stat-label">Response Time</div>
               </div>
-              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                <div className="text-2xl font-bold text-yellow-400">5.0/5</div>
-                <div className="text-sm text-gray-300">Client Rating</div>
+              <div className="professional-stat">
+                <div className="professional-stat-value">5.0/5</div>
+                <div className="professional-stat-label">Client Rating</div>
               </div>
             </motion.div>
 

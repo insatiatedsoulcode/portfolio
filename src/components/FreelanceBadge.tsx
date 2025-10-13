@@ -16,7 +16,7 @@ const FreelanceBadge = () => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-20 right-4 z-40 bg-gradient-to-r from-purple-600/90 to-pink-600/90 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl max-w-xs"
+      className="fixed top-20 right-4 z-40 bg-gradient-to-r from-blue-600/90 to-blue-700/90 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl max-w-xs"
     >
       <div className="text-center mb-3">
         <h3 className="text-white font-bold text-sm mb-1">🚀 Available for Projects</h3>

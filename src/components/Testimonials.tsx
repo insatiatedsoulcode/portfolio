@@ -48,7 +48,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
+    <section id="testimonials" className="professional-section">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,10 +57,10 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Client <span className="text-purple-400">Testimonials</span>
+          <h2 className="text-h1 text-white mb-6">
+            Client <span className="text-blue-400">Testimonials</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-body-lg text-neutral-300 max-w-3xl mx-auto">
             What clients say about working with me. Real feedback from real projects.
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:border-purple-500/50 transition-all duration-300 group"
+              className="professional-card p-6 hover:border-blue-500/50 transition-all duration-300 group"
             >
               {/* Quote Icon */}
               <div className="flex justify-center mb-4">

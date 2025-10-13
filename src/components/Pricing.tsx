@@ -62,7 +62,7 @@ const pricingPlans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
+    <section id="pricing" className="professional-section">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -71,10 +71,10 @@ const Pricing = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Service <span className="text-purple-400">Pricing</span>
+          <h2 className="text-h1 text-white mb-6">
+            Service <span className="text-blue-400">Pricing</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-body-lg text-neutral-300 max-w-3xl mx-auto">
             Transparent pricing for all types of projects. Choose the plan that fits your needs.
           </p>
         </motion.div>
@@ -89,10 +89,10 @@ const Pricing = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border transition-all duration-300 hover:scale-105 ${
+                className={`relative professional-card p-8 transition-all duration-300 hover:scale-105 ${
                   plan.popular 
-                    ? "border-purple-500/50 ring-2 ring-purple-500/20" 
-                    : "border-white/20 hover:border-purple-500/50"
+                    ? "border-blue-500/50 ring-2 ring-blue-500/20" 
+                    : "border-white/20 hover:border-blue-500/50"
                 }`}
               >
                 {/* Popular Badge */}
@@ -139,10 +139,10 @@ const Pricing = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
+                  className={`w-full ${
                     plan.popular
-                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700"
-                      : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
+                      ? "professional-button"
+                      : "professional-button-secondary"
                   }`}
                   onClick={() => {
                     // Scroll to contact section
