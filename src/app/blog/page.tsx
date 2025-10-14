@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Calendar, Clock, User } from "lucide-react";
+import { BookOpen, Calendar, Clock, User, Home, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 const blogPosts = [
   {
@@ -75,7 +76,56 @@ const blogPosts = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
-      <div className="container mx-auto px-6 py-20">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-sm border-b border-gray-700/50">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex items-center space-x-2 text-white hover:text-purple-400 transition-colors duration-300">
+              <ArrowLeft className="w-5 h-5" />
+              <span className="font-semibold">Back to Home</span>
+            </Link>
+            <Link href="/" className="flex items-center space-x-2 text-white hover:text-purple-400 transition-colors duration-300">
+              <Home className="w-5 h-5" />
+              <span className="font-semibold">Home</span>
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="container mx-auto px-6 py-20 pt-24">
+        {/* Animated Hello Text */}
+        <motion.div
+          className="text-center mb-8"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.h2
+            className="text-3xl md:text-5xl font-bold"
+            animate={{
+              opacity: [1, 0, 1],
+              color: [
+                "#10b981", // emerald
+                "#3b82f6", // blue
+                "#8b5cf6", // purple
+                "#f59e0b", // amber
+                "#ef4444", // red
+                "#06b6d4", // cyan
+                "#10b981"  // back to emerald
+              ],
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            Hello! 👋
+          </motion.h2>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

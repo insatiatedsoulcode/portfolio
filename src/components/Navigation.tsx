@@ -26,7 +26,7 @@ const Navigation = () => {
     { name: "Projects", href: "/#projects", icon: Code },
     { name: "Achievements", href: "/#achievements", icon: Award },
     { name: "Testimonials", href: "/#testimonials", icon: Star },
-    { name: "Pricing", href: "/#pricing", icon: DollarSign },
+    // { name: "Pricing", href: "/#pricing", icon: DollarSign },
     { name: "Blog", href: "/blog", icon: BookOpen },
     { name: "AI", href: "/ai", icon: Sparkles },
     { name: "Poetry", href: "/poetry", icon: PenTool },

@@ -50,7 +50,7 @@ const Projects = () => {
         "Scalable and fault-tolerant architecture"
       ],
       links: {
-        live: "https://college-portal.edu",
+        live: "https://www.udaypratapcollege.com",
         github: "https://github.com/deepakkumarsingh/college-website"
       },
       category: "Full Stack",
@@ -132,16 +132,6 @@ const Projects = () => {
                   </div>
                   <div className="flex space-x-2">
                     <a
-                      href={project.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-gray-700/50 rounded-lg hover:bg-gray-600/50 transition-colors duration-200"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <Github className="w-4 h-4 text-gray-300" />
-                    </a>
-                    <a
                       href={project.links.live}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -204,13 +194,13 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* View More Button */}
+        {/* GitHub Profile Link */}
         <div
           variants={itemVariants}
           className="text-center mt-12"
         >
           <a
-            href="https://github.com/deepakkumarsingh"
+            href="https://github.com/insatiatedsoulcode"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
@@ -218,7 +208,7 @@ const Projects = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Github className="mr-2" size={20} />
-            View All Projects on GitHub
+            View My GitHub Profile
           </a>
         </div>
       </div>

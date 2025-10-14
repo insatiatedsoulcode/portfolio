@@ -1,18 +1,27 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
-  ssr: false,
-});
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Education = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [toaster, setToaster] = useState<{show: boolean, message: string}>({show: false, message: ''});
+  const [clickedDot, setClickedDot] = useState<number | null>(null);
+
+  const showToaster = (message: string, index: number) => {
+    setClickedDot(index);
+    setToaster({show: true, message});
+    setTimeout(() => {
+      setToaster({show: false, message: ''});
+      setClickedDot(null);
+    }, 3000); // 3 seconds
+  };
 
   const education = [
     {
@@ -38,10 +47,9 @@ const Education = () => {
       grade: "Computer Science",
       description: "Completed B.Tech in Computer Science with focus on software engineering, algorithms, and system design. Built strong foundation in programming and problem-solving.",
       achievements: [
-        "National Science Olympiad Award 2006 (awarded by Mr. Y.S. Rajan, Former Distinguished Professor ISRO / DOS and Chairman, BOG, NIT Manipur. Member GoC M S Ramaiah UnivAS)",
-        "All India Rank 239 in National Cyber Olympiad 2007",
-        "Active participation in coding competitions and technical events",
-        "Completed multiple software development projects"
+        "Implemented UTS project for Centre for Railway Information Systems in the final year major project",
+        "Worked as category head in vigilance department in the cultural and technical festivals of College",
+        "Implemented obstruction detection metro boggie feature for embedded systems subject"
       ],
       courses: ["Data Structures & Algorithms", "Computer Networks", "Database Systems", "Software Engineering", "Operating Systems"],
       type: "graduation"
@@ -257,32 +265,59 @@ const Education = () => {
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                {/* Timeline Dot with 3D Effect */}
+                {/* Timeline Dot with Tooltip */}
                 <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2">
-                  <div className={`w-6 h-6 rounded-full border-2 border-white/20 shadow-2xl ${
-                    edu.type === "mba" ? "shadow-purple-500/50" : "shadow-gray-500/30"
-                  }`}></div>
-                  <div className={`absolute top-1 left-1 w-4 h-4 rounded-full border-2 border-white ${
-                    edu.type === "mba" ? "bg-gradient-to-br from-purple-400 to-pink-400" : "bg-gradient-to-br from-gray-500 to-gray-700"
-                  } shadow-lg`}></div>
-                  <div className={`absolute top-2 left-2 w-2 h-2 rounded-full ${
-                    edu.type === "mba" ? "bg-white/60" : "bg-white/40"
-                  } shadow-sm`}></div>
-                </div>
-
-                {/* Date in Free Space with 3D Effect */}
-                <div className={`absolute ${index % 2 === 0 ? "left-20 md:left-1/2 md:ml-8" : "right-20 md:right-1/2 md:mr-8"} top-0 flex items-center`}>
-                  <div 
-                    className="flex items-center text-sm text-gray-300 bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-500/50 shadow-2xl shadow-gray-900/50"
-                    whileHover={{ 
-                      scale: 1.05,
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(147, 51, 234, 0.2)"
-                    }}
-                    transition={{ duration: 0.2 }}
+                  {/* Timeline Dot with 3D Effect */}
+                  <motion.div 
+                    className="relative group cursor-pointer" 
+                    onClick={() => showToaster(`${edu.degree} - ${edu.period}`, index)}
+                    whileTap={{ scale: 0.8 }}
+                    animate={clickedDot === index ? {
+                      scale: [1, 1.3, 1],
+                      rotate: [0, 180, 360],
+                      boxShadow: [
+                        "0 0 0 0 rgba(147, 51, 234, 0.4)",
+                        "0 0 0 20px rgba(147, 51, 234, 0)",
+                        "0 0 0 0 rgba(147, 51, 234, 0)"
+                      ]
+                    } : {}}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
                   >
-                    <Calendar className="w-4 h-4 mr-2 text-purple-400" />
-                    <span className="font-medium">{edu.period}</span>
-                  </div>
+                    <div className={`w-6 h-6 rounded-full border-2 border-white/20 shadow-2xl ${
+                      edu.type === "mba" ? "shadow-purple-500/50" : "shadow-gray-500/30"
+                    }`}></div>
+                    <div className={`absolute top-1 left-1 w-4 h-4 rounded-full border-2 border-white ${
+                      edu.type === "mba" ? "bg-gradient-to-br from-purple-400 to-pink-400" : "bg-gradient-to-br from-gray-500 to-gray-700"
+                    } shadow-lg`}></div>
+                    <div className={`absolute top-2 left-2 w-2 h-2 rounded-full ${
+                      edu.type === "mba" ? "bg-white/60" : "bg-white/40"
+                    } shadow-sm`}></div>
+                    
+                    {/* Ripple Effect */}
+                    {clickedDot === index && (
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-purple-400"
+                        initial={{ scale: 0, opacity: 1 }}
+                        animate={{ scale: 2, opacity: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      />
+                    )}
+                    
+                    {/* Tooltip */}
+                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+                      <motion.div 
+                        className="flex items-center text-xs font-medium text-white bg-gray-800/95 backdrop-blur-sm px-3 py-2 rounded-lg border border-gray-600/50 shadow-xl"
+                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                        whileHover={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Calendar className="w-3 h-3 mr-2 text-purple-400" />
+                        <span className="font-semibold whitespace-nowrap">{edu.period}</span>
+                        {/* Tooltip Arrow */}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800/95"></div>
+                      </motion.div>
+                    </div>
+                  </motion.div>
                 </div>
 
                 {/* Content */}
@@ -410,6 +445,24 @@ const Education = () => {
           ))}
         </div>
       </div>
+
+      {/* Toaster - Below Navigation */}
+      {toaster.show && (
+        <motion.div
+          initial={{ opacity: 0, y: -50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -50, scale: 0.9 }}
+          className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-4 rounded-xl shadow-2xl border border-purple-400/50 backdrop-blur-sm"
+        >
+          <div className="flex items-center space-x-3">
+            <Calendar className="w-5 h-5 text-white" />
+            <div>
+              <p className="font-semibold text-sm">{toaster.message}</p>
+              <p className="text-xs text-purple-100">Click on timeline dots to see dates</p>
+            </div>
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 };

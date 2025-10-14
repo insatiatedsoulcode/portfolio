@@ -1,11 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 import { Code, Sparkles } from "lucide-react";
-
-const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
-  ssr: false,
-});
 
 interface LogoProps {
   size?: "sm" | "md" | "lg";
@@ -27,7 +23,7 @@ const Logo = ({ size = "md", showText = true, animated = true }: LogoProps) => {
   };
 
   return (
-    <div
+    <motion.div
       className="flex items-center space-x-3"
       whileHover={animated ? { scale: 1.05 } : {}}
       transition={{ duration: 0.2 }}
@@ -44,7 +40,7 @@ const Logo = ({ size = "md", showText = true, animated = true }: LogoProps) => {
         
         {/* Sparkle Animation */}
         {animated && (
-          <div
+          <motion.div
             className="absolute -top-1 -right-1"
             animate={{
               rotate: [0, 360],
@@ -57,22 +53,12 @@ const Logo = ({ size = "md", showText = true, animated = true }: LogoProps) => {
             }}
           >
             <Sparkles className="w-4 h-4 text-yellow-400" />
-          </div>
+          </motion.div>
         )}
       </div>
 
-      {/* Logo Text */}
-      {showText && (
-        <div className="flex flex-col">
-          <span className={`${textSizes[size]} font-bold text-white leading-tight`}>
-            Deepak
-          </span>
-          <span className={`${textSizes[size]} font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight`}>
-            Singh
-          </span>
-        </div>
-      )}
-    </div>
+      {/* Logo Text - Removed as requested */}
+    </motion.div>
   );
 };
 

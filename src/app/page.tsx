@@ -26,7 +26,7 @@ export default function Home() {
         <Projects />
         <Achievements />
         <Testimonials />
-        <Pricing />
+        {/* <Pricing /> */}
         <AI />
         <Contact />
         <AIAssistant />
