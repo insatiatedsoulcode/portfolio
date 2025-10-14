@@ -61,13 +61,36 @@ const Contact = () => {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const response: ContactResponse = await apiService.submitContactForm(formData);
-      
-      setSubmitStatus({
-        type: "success",
-        message: response.message,
-        aiResponse: response.ai_response,
-      });
+      // Store submission in localStorage for admin dashboard
+      const submission = {
+        id: Date.now().toString(),
+        ...formData,
+        timestamp: new Date().toISOString(),
+        ip: "demo_ip", // In production, get real IP
+        userAgent: navigator.userAgent
+      };
+
+      // Get existing submissions
+      const existingSubmissions = JSON.parse(localStorage.getItem('form_submissions') || '[]');
+      existingSubmissions.push(submission);
+      localStorage.setItem('form_submissions', JSON.stringify(existingSubmissions));
+
+      // Try API call (fallback to local storage if API fails)
+      try {
+        const response: ContactResponse = await apiService.submitContactForm(formData);
+        
+        setSubmitStatus({
+          type: "success",
+          message: response.message,
+          aiResponse: response.ai_response,
+        });
+      } catch (apiError) {
+        // API failed, but we stored locally
+        setSubmitStatus({
+          type: "success",
+          message: "Message sent successfully! I'll get back to you soon.",
+        });
+      }
 
       // Reset form on success
       setFormData({

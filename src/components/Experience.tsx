@@ -228,7 +228,7 @@ const Experience = () => {
 
               {/* Content */}
               <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
-                <div
+                <motion.div
                   whileHover={{ 
                     scale: 1.02,
                     rotateY: 2,
@@ -286,7 +286,7 @@ const Experience = () => {
                       </span>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           ))}

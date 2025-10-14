@@ -4,6 +4,8 @@ import "./globals.css";
 import "../styles/professional-theme.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import MotionProvider from "@/components/MotionProvider";
+import { AuthProvider } from "@/contexts/AuthContext";
+import VisitorTracker from "@/components/VisitorTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -226,9 +228,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <GoogleAnalytics />
-        <MotionProvider>
-          {children}
-        </MotionProvider>
+        <AuthProvider>
+          <MotionProvider>
+            <VisitorTracker />
+            {children}
+          </MotionProvider>
+        </AuthProvider>
       </body>
     </html>
   );

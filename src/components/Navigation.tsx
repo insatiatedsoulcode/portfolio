@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles, BookOpen, DollarSign, Star } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles, BookOpen, DollarSign, Star, Settings } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -31,6 +31,7 @@ const Navigation = () => {
     { name: "AI", href: "/ai", icon: Sparkles },
     { name: "Poetry", href: "/poetry", icon: PenTool },
     { name: "Contact", href: "/#contact", icon: Mail },
+    { name: "Admin", href: "/admin", icon: Settings },
   ];
 
   return (
