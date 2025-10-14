@@ -22,8 +22,13 @@ class VisitorTracker {
   private isNewVisitor: boolean;
 
   constructor() {
-    this.sessionId = this.getOrCreateSessionId();
-    this.isNewVisitor = this.checkIfNewVisitor();
+    if (typeof window !== 'undefined') {
+      this.sessionId = this.getOrCreateSessionId();
+      this.isNewVisitor = this.checkIfNewVisitor();
+    } else {
+      this.sessionId = 'server-session';
+      this.isNewVisitor = true;
+    }
   }
 
   private getOrCreateSessionId(): string {

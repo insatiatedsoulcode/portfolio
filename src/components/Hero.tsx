@@ -114,7 +114,7 @@ const Hero = () => {
                   ease: "easeInOut"
                 }}
               >
-                Hello I'm 👋
+                Hello I&apos;m 👋
               </motion.h2>
             </motion.div>
 

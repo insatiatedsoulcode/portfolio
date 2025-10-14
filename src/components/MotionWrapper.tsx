@@ -5,27 +5,27 @@ import { ReactNode } from "react";
 
 // Dynamic motion components to avoid SSR issues
 const MotionDiv = dynamic(
-  () => import("framer-motion").then((mod) => mod.div),
+  () => import("framer-motion").then((mod) => mod.motion.div),
   { ssr: false }
 );
 
 const MotionSection = dynamic(
-  () => import("framer-motion").then((mod) => mod.section),
+  () => import("framer-motion").then((mod) => mod.motion.section),
   { ssr: false }
 );
 
 const MotionNav = dynamic(
-  () => import("framer-motion").then((mod) => mod.nav),
+  () => import("framer-motion").then((mod) => mod.motion.nav),
   { ssr: false }
 );
 
 const MotionButton = dynamic(
-  () => import("framer-motion").then((mod) => mod.button),
+  () => import("framer-motion").then((mod) => mod.motion.button),
   { ssr: false }
 );
 
 const MotionA = dynamic(
-  () => import("framer-motion").then((mod) => mod.a),
+  () => import("framer-motion").then((mod) => mod.motion.a),
   { ssr: false }
 );
 
@@ -35,23 +35,23 @@ const AnimatePresence = dynamic(
 );
 
 // Fallback components for SSR
-const FallbackDiv = ({ children, ...props }: { children: ReactNode; [key: string]: any }) => (
+const FallbackDiv = ({ children, ...props }: { children: ReactNode; [key: string]: unknown }) => (
   <div {...props}>{children}</div>
 );
 
-const FallbackSection = ({ children, ...props }: { children: ReactNode; [key: string]: any }) => (
+const FallbackSection = ({ children, ...props }: { children: ReactNode; [key: string]: unknown }) => (
   <section {...props}>{children}</section>
 );
 
-const FallbackNav = ({ children, ...props }: { children: ReactNode; [key: string]: any }) => (
+const FallbackNav = ({ children, ...props }: { children: ReactNode; [key: string]: unknown }) => (
   <nav {...props}>{children}</nav>
 );
 
-const FallbackButton = ({ children, ...props }: { children: ReactNode; [key: string]: any }) => (
+const FallbackButton = ({ children, ...props }: { children: ReactNode; [key: string]: unknown }) => (
   <button {...props}>{children}</button>
 );
 
-const FallbackA = ({ children, ...props }: { children: ReactNode; [key: string]: any }) => (
+const FallbackA = ({ children, ...props }: { children: ReactNode; [key: string]: unknown }) => (
   <a {...props}>{children}</a>
 );
 

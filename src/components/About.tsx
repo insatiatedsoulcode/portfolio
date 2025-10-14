@@ -54,7 +54,6 @@ const SkillIcon = ({ skill }: { skill: Skill }) => {
         // 💨 Hue rotation only for highlighted icons
         filter: isHighlighted ? "hue-rotate(0deg)" : "none",
       }}
-      transition={{ duration: 0.3 }}
       title={skill.name}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -176,7 +175,7 @@ const About = () => {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div
+        <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
@@ -185,14 +184,14 @@ const About = () => {
         >
           {/* Left Content */}
           <div>
-            <h2
+            <motion.h2
               variants={itemVariants}
               className="text-4xl md:text-5xl font-bold text-white mb-6"
             >
               About <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Me</span>
-            </h2>
+            </motion.h2>
             
-            <p
+            <motion.p
               variants={itemVariants}
               className="text-lg text-gray-300 mb-6 leading-relaxed"
             >
@@ -200,9 +199,9 @@ const About = () => {
               top-tier companies like INTECH Creative Services, Complinity Technology, Tashee Linux Services, 
               Quality Council of India, and Nav Info Tech. I specialize in Java development, AI/ML solutions, 
               enterprise implementations, and government project management.
-            </p>
+            </motion.p>
             
-            <p
+            <motion.p
               variants={itemVariants}
               className="text-lg text-gray-300 mb-8 leading-relaxed"
             >
@@ -211,10 +210,10 @@ const About = () => {
               performance by 30%, and led teams across diverse technology domains. I hold a B.Tech from Manipal 
               Institute of Technology and am currently pursuing an Online MBA from Amity University. My academic 
               excellence includes the National Science Olympiad Award 2006, presented by Mr. Y.S. Rajan (Former Distinguished Professor ISRO / DOS and Chairman, BOG, NIT Manipur. Member GoC M S Ramaiah UnivAS), and All India Rank 239 in National Cyber Olympiad 2007.
-            </p>
+            </motion.p>
 
             {/* Stats */}
-            <div
+            <motion.div
               variants={itemVariants}
               className="grid grid-cols-2 gap-6 mb-8"
             >
@@ -226,15 +225,15 @@ const About = () => {
                 <div className="text-3xl font-bold text-pink-400 mb-2">1M+</div>
                 <div className="text-gray-300">Users Served</div>
               </div>
-            </div>
+            </motion.div>
 
-            <a
+            <motion.a
               variants={itemVariants}
               href="#contact"
               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
             >
               Let&apos;s Work Together
-            </a>
+            </motion.a>
           </div>
 
           {/* Right Content - Skills & Hobbies */}
@@ -418,7 +417,7 @@ const About = () => {
                     description: "Discovering new cultures and perspectives"
                   }
                 ].map((hobby, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     variants={itemVariants}
                     className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 group"
@@ -430,12 +429,12 @@ const About = () => {
                     <p className="text-xs text-gray-400 leading-relaxed">
                       {hobby.description}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

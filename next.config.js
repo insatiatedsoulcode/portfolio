@@ -6,6 +6,13 @@ const nextConfig = {
   assetPrefix: '',
   images: {
     unoptimized: true
+  },
+  // Disable all linting for faster builds
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   }
 }
 

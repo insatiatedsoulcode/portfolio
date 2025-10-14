@@ -1,11 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-
-const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
-  ssr: false,
-});
 
 const testimonials = [
   {
@@ -93,7 +89,7 @@ const Testimonials = () => {
 
               {/* Content */}
               <p className="text-gray-300 text-sm leading-relaxed mb-6 text-center">
-                "{testimonial.content}"
+                &quot;{testimonial.content}&quot;
               </p>
 
               {/* Project */}

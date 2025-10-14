@@ -1,15 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import dynamic from "next/dynamic";
-
-const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
-  ssr: false,
-});
-
-const AnimatePresence = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.AnimatePresence })), {
-  ssr: false,
-});
+import { motion, AnimatePresence } from "framer-motion";
 import { Bot, X, Send, Lightbulb, Code, Briefcase, BookOpen, MessageCircle } from "lucide-react";
 
 interface Message {
@@ -149,7 +141,7 @@ const AIAssistant = () => {
   return (
     <>
       {/* Chat Button */}
-      <button
+      <motion.button
         onClick={() => setIsOpen(true)}
         className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
         whileHover={{ scale: 1.1 }}
@@ -169,12 +161,12 @@ const AIAssistant = () => {
         <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
           <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
         </div>
-      </button>
+      </motion.button>
 
       {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
-          <div
+          <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -202,7 +194,7 @@ const AIAssistant = () => {
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 h-[400px]">
               {messages.map((message) => (
-                <div
+                <motion.div
                   key={message.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -220,11 +212,11 @@ const AIAssistant = () => {
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
               
               {isTyping && (
-                <div
+                <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   className="flex justify-start"
@@ -236,7 +228,7 @@ const AIAssistant = () => {
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )}
               
               <div ref={messagesEndRef} />
@@ -250,7 +242,7 @@ const AIAssistant = () => {
                   {quickActions.map((action, index) => {
                     const Icon = action.icon;
                     return (
-                      <button
+                      <motion.button
                         key={index}
                         onClick={() => handleQuickAction(action.action)}
                         className="p-2 bg-gray-700/50 hover:bg-gray-600/50 rounded-lg text-left transition-colors duration-200 group"
@@ -261,7 +253,7 @@ const AIAssistant = () => {
                           <Icon className="w-3 h-3 text-white" />
                         </div>
                         <p className="text-gray-300 text-xs">{action.label}</p>
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -279,7 +271,7 @@ const AIAssistant = () => {
                   placeholder="Ask me anything about Deepak's work..."
                   className="flex-1 px-4 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors duration-300"
                 />
-                <button
+                <motion.button
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim() || isTyping}
                   className="p-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
@@ -287,10 +279,10 @@ const AIAssistant = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Send className="w-4 h-4" />
-                </button>
+                </motion.button>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

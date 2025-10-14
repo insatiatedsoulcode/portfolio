@@ -89,7 +89,7 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
               name: "John Doe",
               email: "john.doe@example.com",
               subject: "Freelance Opportunity",
-              message: "Hi Deepak, I'm interested in hiring you for a React project. Could we discuss the details?",
+              message: "Hi Deepak, I&apos;m interested in hiring you for a React project. Could we discuss the details?",
               timestamp: new Date().toISOString(),
               ip: "192.168.1.1",
               userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
@@ -99,7 +99,7 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
           const mockQueries: AIQuery[] = [
             {
               id: "1",
-              prompt: "Tell me about Deepak's experience with React and Next.js",
+              prompt: "Tell me about Deepak&apos;s experience with React and Next.js",
               provider: "openai",
               response: "Deepak has extensive experience with React and Next.js, having built multiple portfolio websites and web applications...",
               timestamp: new Date().toISOString(),
@@ -137,13 +137,12 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
   };
 
   const exportData = () => {
-    const data = activeTab === "submissions" ? submissions : queries;
     const csvContent = "data:text/csv;charset=utf-8," + 
       (activeTab === "submissions" 
         ? "Name,Email,Subject,Message,Timestamp\n" + 
-          data.map((item: any) => `"${item.name}","${item.email}","${item.subject}","${item.message}","${item.timestamp}"`).join("\n")
+          submissions.map((item: FormSubmission) => `"${item.name}","${item.email}","${item.subject}","${item.message}","${item.timestamp}"`).join("\n")
         : "Prompt,Provider,Response,Timestamp\n" + 
-          data.map((item: any) => `"${item.prompt}","${item.provider}","${item.response}","${item.timestamp}"`).join("\n")
+          queries.map((item: AIQuery) => `"${item.prompt}","${item.provider}","${item.response}","${item.timestamp}"`).join("\n")
       );
     
     const encodedUri = encodeURI(csvContent);
@@ -235,7 +234,7 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Today's Activity</p>
+                <p className="text-gray-400 text-sm">Today&apos;s Activity</p>
                 <p className="text-2xl font-bold text-white">{visitorStats.todayVisits}</p>
                 <p className="text-xs text-gray-500">Page views today</p>
               </div>
@@ -382,7 +381,7 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
                           <span className="text-white">{visitorStats.totalVisits}</span>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-gray-400">Today's Visits</span>
+                          <span className="text-gray-400">Today&apos;s Visits</span>
                           <span className="text-white">{visitorStats.todayVisits}</span>
                         </div>
                       </div>
