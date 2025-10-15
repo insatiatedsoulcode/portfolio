@@ -6,7 +6,7 @@ import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Achievements from "@/components/Achievements";
 import Testimonials from "@/components/Testimonials";
-import Pricing from "@/components/Pricing";
+// import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import AI from "@/components/AI";
 import AIAssistant from "@/components/AIAssistant";

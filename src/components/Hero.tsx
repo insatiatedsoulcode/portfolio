@@ -1,7 +1,7 @@
 "use client";
 
 import { Download, Github, Linkedin, Mail, ChevronDown } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 const Hero = () => {
@@ -19,8 +19,8 @@ const Hero = () => {
 
   // Calculate badge opacity and scale based on scroll position
   const maxScroll = 300; // Fade out after 300px scroll
-  const badgeOpacity = Math.max(0, 1 - scrollY / maxScroll);
-  const badgeScale = Math.max(0.8, 1 - (scrollY / maxScroll) * 0.2);
+  // const badgeOpacity = Math.max(0, 1 - scrollY / maxScroll);
+  // const badgeScale = Math.max(0.8, 1 - (scrollY / maxScroll) * 0.2);
 
   // Handle availability modal
   const handleAvailabilityClick = () => {

@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
-const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
-  ssr: false,
-});
+// const motion = dynamic(() => import("framer-motion").then((mod) => ({ default: mod.motion })), {
+//   ssr: false,
+// });
 import { useInView } from "react-intersection-observer";
 import { Mail, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { apiService, ContactFormData, ContactResponse } from "../services/api";
@@ -84,7 +84,7 @@ const Contact = () => {
           message: response.message,
           aiResponse: response.ai_response,
         });
-      } catch (apiError) {
+      } catch {
         // API failed, but we stored locally
         setSubmitStatus({
           type: "success",

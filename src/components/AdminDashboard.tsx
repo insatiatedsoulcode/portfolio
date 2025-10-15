@@ -4,17 +4,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   LogOut, 
-  Users, 
   MessageSquare, 
   FileText, 
-  Calendar, 
-  Mail, 
-  Phone, 
   Trash2, 
   Eye,
   RefreshCw,
   Download,
-  Filter,
   Globe,
   TrendingUp,
   BookOpen

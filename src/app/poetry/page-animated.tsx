@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
-import { PenTool, Heart, Star, BookOpen } from "lucide-react";
+import { PenTool, Heart, Star } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -121,8 +121,8 @@ const poems = [
   },
 ];
 
-const categories = ["All", "Technology", "Nature", "Life", "Friendship"];
-const moods = ["All", "Inspiring", "Contemplative", "Reflective", "Nostalgic"];
+// const categories = ["All", "Technology", "Nature", "Life", "Friendship"];
+// const moods = ["All", "Inspiring", "Contemplative", "Reflective", "Nostalgic"];
 
 export default function PoetryPage() {
   return (

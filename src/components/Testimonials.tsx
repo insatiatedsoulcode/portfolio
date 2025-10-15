@@ -50,7 +50,7 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="professional-section">
       <div className="container mx-auto px-6">
-        <div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -63,11 +63,11 @@ const Testimonials = () => {
           <p className="text-body-lg text-neutral-300 max-w-3xl mx-auto">
             What clients say about working with me. Real feedback from real projects.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={testimonial.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ const Testimonials = () => {
                 <p className="text-gray-400 text-xs">{testimonial.role}</p>
                 <p className="text-purple-300 text-xs font-medium">{testimonial.company}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

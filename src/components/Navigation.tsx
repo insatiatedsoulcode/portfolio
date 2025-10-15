@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles, BookOpen, DollarSign, Star, Settings } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, GraduationCap, Code, Award, Mail, PenTool, Sparkles, BookOpen, Star, Settings } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Logo from "./Logo";

@@ -29,7 +29,7 @@ const LoginForm = ({ onLogin, isLoading = false }: LoginFormProps) => {
       if (!success) {
         setError("Invalid username or password");
       }
-    } catch (err) {
+    } catch {
       setError("Login failed. Please try again.");
     }
   };

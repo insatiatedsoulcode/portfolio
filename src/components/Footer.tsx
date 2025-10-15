@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900/50 backdrop-blur-sm border-t border-gray-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -36,7 +36,7 @@ const Footer = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {/* Brand Section */}
-          <div variants={itemVariants} className="space-y-4">
+          <motion.div variants={itemVariants} className="space-y-4">
             <h3 className="text-2xl font-bold text-white">Deepak Kumar Singh</h3>
             <p className="text-gray-300 leading-relaxed">
               Full Stack Developer with 9+ years of experience in crafting robust and scalable web applications.
@@ -51,10 +51,10 @@ const Footer = () => {
               </div>
               <span>in India</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div variants={itemVariants} className="space-y-4">
+          <motion.div variants={itemVariants} className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Quick Links</h4>
             <div className="space-y-2">
               <Link href="/#about" className="block text-gray-300 hover:text-purple-400 transition-colors">
@@ -76,10 +76,10 @@ const Footer = () => {
                 Poetry
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Connect */}
-          <div variants={itemVariants} className="space-y-4">
+          <motion.div variants={itemVariants} className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Connect</h4>
             <div className="flex space-x-4">
               <a
@@ -111,8 +111,8 @@ const Footer = () => {
                 <Mail className="w-6 h-6" />
               </a>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Section */}
         <div

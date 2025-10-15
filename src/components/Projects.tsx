@@ -105,7 +105,7 @@ const Projects = () => {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
@@ -127,7 +127,7 @@ const Projects = () => {
                     </span>
                   </div>
                   <div className="flex space-x-2">
-                    <a
+                    <motion.a
                       href={project.links.live}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -136,7 +136,7 @@ const Projects = () => {
                       whileTap={{ scale: 0.9 }}
                     >
                       <ExternalLink className="w-4 h-4 text-gray-300" />
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
 
@@ -186,7 +186,7 @@ const Projects = () => {
                   {project.impact}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -195,7 +195,7 @@ const Projects = () => {
           variants={itemVariants}
           className="text-center mt-12"
         >
-          <a
+          <motion.a
             href="https://github.com/insatiatedsoulcode"
             target="_blank"
             rel="noopener noreferrer"
@@ -205,7 +205,7 @@ const Projects = () => {
           >
             <Github className="mr-2" size={20} />
             View My GitHub Profile
-          </a>
+          </motion.a>
         </div>
       </div>
     </section>

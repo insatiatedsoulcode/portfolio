@@ -16,11 +16,11 @@ const Logo = ({ size = "md", showText = true, animated = true }: LogoProps) => {
     lg: "w-16 h-16"
   };
 
-  const textSizes = {
-    sm: "text-lg",
-    md: "text-2xl",
-    lg: "text-3xl"
-  };
+  // const textSizes = {
+  //   sm: "text-lg",
+  //   md: "text-2xl",
+  //   lg: "text-3xl"
+  // };
 
   return (
     <motion.div
