@@ -5,11 +5,10 @@ import { Code, Sparkles } from "lucide-react";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg";
-  showText?: boolean;
   animated?: boolean;
 }
 
-const Logo = ({ size = "md", showText = true, animated = true }: LogoProps) => {
+const Logo = ({ size = "md", animated = true }: LogoProps) => {
   const sizeClasses = {
     sm: "w-8 h-8",
     md: "w-12 h-12", 

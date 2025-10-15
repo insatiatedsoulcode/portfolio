@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Deepak Kumar Singh | Senior Full Stack Developer | Java, Spring Boot, AI/ML Expert",
-  description: "Experienced Senior Full Stack Developer with 9+ years expertise in Java, Spring Boot, Angular, React, AI/ML, and AWS. Based in Pune, India. Specializing in enterprise solutions, microservices, and performance optimization.",
+  description: "Experienced Senior Full Stack Developer with 9+ years expertise in Java, Spring Boot, Angular, React, AI/ML, and AWS. Based in Varanasi, India. Specializing in enterprise solutions, microservices, and performance optimization.",
   keywords: [
     // Personal Brand
     "Deepak Kumar Singh", "Deepak Singh Developer", "Deepak Kumar","Deepak Singh",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     "CI/CD Specialist", "API Design", "Database Design",
     
     // Location Based
-    "Pune Developer", "India Developer", "Maharashtra Developer",
-    "Remote Developer India", "Freelance Developer Pune",
+    "Varanasi Developer", "India Developer", "Uttar Pradesh Developer",
+    "Remote Developer India", "Freelance Developer Varanasi",
     
     // Industry Keywords
     "Software Engineer", "Tech Lead", "Solution Architect",
@@ -68,13 +68,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://singhdeepak.me",
+    url: "https://www.singhdeepak.me",
     title: "Deepak Kumar Singh | Senior Full Stack Developer | Java, Spring Boot, AI/ML Expert",
-    description: "Experienced Senior Full Stack Developer with 9+ years expertise in Java, Spring Boot, Angular, React, AI/ML, and AWS. Based in Pune, India.",
+    description: "Experienced Senior Full Stack Developer with 9+ years expertise in Java, Spring Boot, Angular, React, AI/ML, and AWS. Based in Varanasi, India.",
     siteName: "Deepak Kumar Singh Portfolio",
     images: [
       {
-        url: "https://singhdeepak.me/images/profile-og.jpg",
+        url: "https://www.singhdeepak.me/images/profile-og.svg",
         width: 1200,
         height: 630,
         alt: "Deepak Kumar Singh - Senior Full Stack Developer | Java, Spring Boot, AI/ML Expert | Available for Freelance Projects",
@@ -84,9 +84,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Deepak Kumar Singh | Senior Full Stack Developer | Java, Spring Boot, AI/ML Expert",
-    description: "Experienced Senior Full Stack Developer with 9+ years expertise in Java, Spring Boot, Angular, React, AI/ML, and AWS. Based in Pune, India.",
+    description: "Experienced Senior Full Stack Developer with 9+ years expertise in Java, Spring Boot, Angular, React, AI/ML, and AWS. Based in Varanasi, India.",
     creator: "@deepakkumarsingh",
-    images: ["https://singhdeepak.me/images/profile-og.jpg"],
+    images: ["https://www.singhdeepak.me/images/profile-og.svg"],
   },
   verification: {
     google: "your-google-verification-code-here",
@@ -95,13 +95,13 @@ export const metadata: Metadata = {
   classification: "Portfolio",
   referrer: "origin-when-cross-origin",
   alternates: {
-    canonical: "https://singhdeepak.me",
+    canonical: "https://www.singhdeepak.me",
   },
   other: {
-    "geo.region": "IN-MH",
-    "geo.placename": "Pune",
-    "geo.position": "18.5204;73.8567",
-    "ICBM": "18.5204, 73.8567",
+    "geo.region": "IN-UP",
+    "geo.placename": "Varanasi",
+    "geo.position": "25.3176;82.9739",
+    "ICBM": "25.3176, 82.9739",
   },
 };
 
@@ -116,8 +116,8 @@ export default function RootLayout({
     "name": "Deepak Kumar Singh",
     "jobTitle": "Senior Full Stack Developer",
     "description": "Experienced Senior Full Stack Developer with 9+ years expertise in Java, Spring Boot, Angular, React, AI/ML, and AWS. Specializing in enterprise solutions, microservices, and performance optimization.",
-    "url": "https://singhdeepak.me",
-    "image": "https://singhdeepak.me/images/profile.jpg",
+    "url": "https://www.singhdeepak.me",
+    "image": "https://www.singhdeepak.me/images/profile-og.svg",
     "email": "deepak@singhdeepak.me",
     "telephone": "+91-9650801379",
     "sameAs": [
@@ -129,15 +129,15 @@ export default function RootLayout({
     ],
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Pune",
-      "addressRegion": "Maharashtra",
+      "addressLocality": "Varanasi",
+      "addressRegion": "Uttar Pradesh",
       "addressCountry": "India",
-      "postalCode": "411001"
+      "postalCode": "221001"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "18.5204",
-      "longitude": "73.8567"
+      "latitude": "25.3176",
+      "longitude": "82.9739"
     },
     "worksFor": {
       "@type": "Organization",
@@ -149,7 +149,7 @@ export default function RootLayout({
       "name": "Senior Full Stack Software Engineer",
       "occupationLocation": {
         "@type": "City",
-        "name": "Pune, Maharashtra, India"
+        "name": "Varanasi, Uttar Pradesh, India"
       },
       "skills": [
         "Java", "Spring Boot", "Angular", "React", "Next.js", "AWS", "DevOps", 
@@ -207,6 +207,21 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Deepak Kumar Singh" />
         <meta name="application-name" content="Deepak Kumar Singh Portfolio" />
+        
+        {/* Additional Open Graph Meta Tags for WhatsApp */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/svg+xml" />
+        <meta property="og:image:alt" content="Deepak Kumar Singh - Senior Full Stack Developer | Java, Spring Boot, AI/ML Expert | Available for Freelance Projects" />
+        <meta property="og:updated_time" content={new Date().toISOString()} />
+        
+        {/* WhatsApp Specific Meta Tags */}
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Deepak Kumar Singh Portfolio" />
+        <meta property="og:type" content="profile" />
+        <meta property="profile:first_name" content="Deepak Kumar" />
+        <meta property="profile:last_name" content="Singh" />
+        <meta property="profile:username" content="deepakkumarsingh" />
         
         {/* Preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

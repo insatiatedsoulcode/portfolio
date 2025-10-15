@@ -6,19 +6,11 @@ import { useRef, useState, useEffect } from "react";
 
 const Hero = () => {
   const heroRef = useRef(null);
-  const [scrollY, setScrollY] = useState(0);
   const [showAvailabilityModal, setShowAvailabilityModal] = useState(false);
   const [modalTimer, setModalTimer] = useState<NodeJS.Timeout | null>(null);
 
-  // Track window scroll
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   // Calculate badge opacity and scale based on scroll position
-  const maxScroll = 300; // Fade out after 300px scroll
+  // const maxScroll = 300; // Fade out after 300px scroll
   // const badgeOpacity = Math.max(0, 1 - scrollY / maxScroll);
   // const badgeScale = Math.max(0.8, 1 - (scrollY / maxScroll) * 0.2);
 

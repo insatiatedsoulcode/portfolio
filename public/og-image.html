@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepak Kumar Singh - Portfolio OG Image</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #1e3a8a 50%, #1e1b4b 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+        }
+        
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .profile-section {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .profile-icon {
+            font-size: 80px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+        
+        .content-section {
+            flex: 2;
+            padding-left: 60px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .name {
+            font-size: 64px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 12px;
+        }
+        
+        .location {
+            font-size: 24px;
+            color: #a78bfa;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skills {
+            font-size: 20px;
+            color: #e2e8f0;
+            margin-bottom: 16px;
+            max-width: 600px;
+        }
+        
+        .experience {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 24px;
+        }
+        
+        .cta {
+            font-size: 28px;
+            font-weight: 700;
+            color: #10b981;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .website {
+            font-size: 18px;
+            color: #94a3b8;
+        }
+        
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.2) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .tech-icons {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 2;
+        }
+        
+        .tech-icon {
+            font-size: 32px;
+            opacity: 0.8;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <div class="left-section">
+        <div class="profile-section">
+            <div class="profile-icon">👨‍💼</div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h1 class="name">Deepak Kumar Singh</h1>
+        <h2 class="title">Senior Full Stack Developer</h2>
+        <div class="location">
+            <span>📍</span>
+            <span>Varanasi, Uttar Pradesh, India</span>
+        </div>
+        <p class="skills">Java • Spring Boot • React • Angular • AI/ML • AWS • DevOps</p>
+        <p class="experience">9+ Years Experience • Government Projects • Enterprise Solutions</p>
+        <div class="cta">Available for Projects</div>
+        <div class="website">www.singhdeepak.me</div>
+    </div>
+    
+    <div class="tech-icons">
+        <div class="tech-icon">☕</div>
+        <div class="tech-icon">⚛️</div>
+        <div class="tech-icon">🚀</div>
+        <div class="tech-icon">🤖</div>
+        <div class="tech-icon">☁️</div>
+    </div>
+</body>
+</html>
