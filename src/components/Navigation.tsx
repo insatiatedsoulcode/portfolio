@@ -66,26 +66,26 @@ const Navigation = () => {
           >
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    rotateY: 360,
-                    transition: { duration: 0.6, ease: "easeOut" }
-                  }}
-                  whileTap={{ 
-                    scale: 0.9,
-                    rotateY: 180,
-                    transition: { duration: 0.3 }
-                  }}
-                  className="text-gray-300 hover:text-white px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-500/20 hover:shadow-lg hover:shadow-blue-500/25"
-                >
-                  {item.name}
-                </motion.a>
+                <Link key={item.name} href={item.href}>
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotateY: 360,
+                      transition: { duration: 0.6, ease: "easeOut" }
+                    }}
+                    whileTap={{ 
+                      scale: 0.9,
+                      rotateY: 180,
+                      transition: { duration: 0.3 }
+                    }}
+                    className="text-gray-300 hover:text-white px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-500/20 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
+                  >
+                    {item.name}
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </motion.div>
@@ -123,28 +123,28 @@ const Navigation = () => {
               {navItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ 
-                      scale: 1.05,
-                      rotateZ: 360,
-                      transition: { duration: 0.5, ease: "easeOut" }
-                    }}
-                    whileTap={{ 
-                      scale: 0.95,
-                      rotateZ: 180,
-                      transition: { duration: 0.3 }
-                    }}
-                    onClick={() => setIsOpen(false)}
-                    className="text-gray-300 hover:text-white block px-3 py-2 rounded-full text-base font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-500/20 hover:shadow-lg hover:shadow-blue-500/25 flex items-center space-x-2"
-                  >
-                    <Icon size={18} />
-                    <span>{item.name}</span>
-                  </motion.a>
+                  <Link key={item.name} href={item.href}>
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        rotateZ: 360,
+                        transition: { duration: 0.5, ease: "easeOut" }
+                      }}
+                      whileTap={{ 
+                        scale: 0.95,
+                        rotateZ: 180,
+                        transition: { duration: 0.3 }
+                      }}
+                      onClick={() => setIsOpen(false)}
+                      className="text-gray-300 hover:text-white block px-3 py-2 rounded-full text-base font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-500/20 hover:shadow-lg hover:shadow-blue-500/25 flex items-center space-x-2 cursor-pointer"
+                    >
+                      <Icon size={18} />
+                      <span>{item.name}</span>
+                    </motion.div>
+                  </Link>
                 );
               })}
             </div>

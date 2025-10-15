@@ -23,7 +23,13 @@ export const metadata: Metadata = {
   keywords: [
     // Personal Brand
     "Deepak Kumar Singh", "Deepak Singh Developer", "Deepak Kumar","Deepak Singh",
-    
+    //Colleges
+    "Amity University", "Manipal Institute of Technology",
+    //Awards
+    "National Science Olympiad Award 2006", "All India Rank 239 - National Cyber Olympiad 2007",  "Science All India Rank 1",
+    //Companies
+    "INTECH Creative Services Private Limited", "Complinity Technology", "Tashee Linux Services", "Quality Council of India", "Nav Info Tech", "DP World",
+
     // Technical Skills
     "Full Stack Developer", "Java Developer", "Spring Boot Expert", 
     "Angular Developer", "React Developer", "Next.js Developer",
@@ -36,7 +42,7 @@ export const metadata: Metadata = {
     
     // Location Based
     "Varanasi Developer", "India Developer", "Uttar Pradesh Developer",
-    "Remote Developer India", "Freelance Developer Varanasi",
+    "Remote Developer India", "Freelance Developer Varanasi","Pune",
     
     // Industry Keywords
     "Software Engineer", "Tech Lead", "Solution Architect",
@@ -213,7 +219,7 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/svg+xml" />
         <meta property="og:image:alt" content="Deepak Kumar Singh - Senior Full Stack Developer | Java, Spring Boot, AI/ML Expert | Available for Freelance Projects" />
-        <meta property="og:updated_time" content={new Date().toISOString()} />
+        <meta property="og:updated_time" content="2025-01-15T19:22:49.000Z" />
         
         {/* WhatsApp Specific Meta Tags */}
         <meta property="og:locale" content="en_US" />
@@ -230,8 +236,8 @@ export default function RootLayout({
         
         {/* Favicon and Icons */}
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
         <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
         <link rel="manifest" href="/site.webmanifest" />
         
