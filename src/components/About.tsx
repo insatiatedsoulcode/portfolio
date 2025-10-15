@@ -203,7 +203,7 @@ const About = () => {
             
             <motion.p
               variants={itemVariants}
-              className="text-lg text-gray-300 mb-8 leading-relaxed"
+              className="text-lg text-gray-300 mb-6 leading-relaxed"
             >
               My expertise spans across Java development, Spring Boot, AI/ML solutions, microservices architecture, 
               and enterprise implementations. I&apos;ve successfully delivered government projects, optimized system 
@@ -211,6 +211,27 @@ const About = () => {
               Institute of Technology and am currently pursuing an Online MBA from Amity University. My academic 
               excellence includes the National Science Olympiad Award 2006, presented by Mr. Y.S. Rajan (Former Distinguished Professor ISRO / DOS and Chairman, BOG, NIT Manipur. Member GoC M S Ramaiah UnivAS), and All India Rank 239 in National Cyber Olympiad 2007.
             </motion.p>
+
+            {/* Location Information */}
+            <motion.div
+              variants={itemVariants}
+              className="mb-8 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-2xl border border-blue-500/20"
+            >
+              <h3 className="text-lg font-semibold text-white mb-3 flex items-center">
+                <span className="mr-2">📍</span>
+                Location & Background
+              </h3>
+              <p className="text-gray-300 mb-2">
+                Currently based in <span className="text-blue-400 font-semibold">Varanasi</span>, 
+                <span className="text-blue-400 font-semibold"> Uttar Pradesh, India</span>
+              </p>
+              <p className="text-gray-400 text-sm">
+                Originally from the spiritual city of <span className="text-purple-400">Varanasi</span> - 
+                the ancient city of temples and ghats, where tradition meets technology. 
+                This cultural heritage has shaped my approach to building solutions that respect both 
+                innovation and timeless values.
+              </p>
+            </motion.div>
 
             {/* Stats */}
             <motion.div

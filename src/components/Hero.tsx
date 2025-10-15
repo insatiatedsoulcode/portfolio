@@ -136,6 +136,11 @@ const Hero = () => {
               Senior Full-Stack Software Engineer at INTECH Creative Services
               <br />
               Building innovative software solutions and leading development teams
+              <br />
+              <span className="text-blue-400 flex items-center justify-center lg:justify-start mt-2">
+                <span className="mr-2">🕉️</span>
+                From the spiritual city of Varanasi, India
+              </span>
             </motion.p>
 
             <motion.div

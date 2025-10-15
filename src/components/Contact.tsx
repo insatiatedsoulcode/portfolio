@@ -163,6 +163,17 @@ const Contact = () => {
                       <p className="text-gray-300">Usually within 24 hours</p>
                     </div>
                   </div>
+
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">📍</span>
+                    </div>
+                    <div>
+                      <p className="text-white font-medium">Location</p>
+                      <p className="text-gray-300">Varanasi, Uttar Pradesh, India</p>
+                      <p className="text-gray-400 text-sm">Available for remote work worldwide</p>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-8 p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">

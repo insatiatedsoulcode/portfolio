@@ -40,6 +40,8 @@ const Footer = () => {
             <h3 className="text-2xl font-bold text-white">Deepak Kumar Singh</h3>
             <p className="text-gray-300 leading-relaxed">
               Full Stack Developer with 9+ years of experience in crafting robust and scalable web applications.
+              <br />
+              <span className="text-blue-400">📍 Based in Varanasi, Uttar Pradesh, India</span>
             </p>
             <div className="flex items-center space-x-2 text-purple-400">
               <span>Made with</span>
